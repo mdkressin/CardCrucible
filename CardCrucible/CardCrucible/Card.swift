@@ -18,7 +18,7 @@ struct Card {
     // The Rank of the card
     enum Rank: String {
         case ace
-        case two, three, four, five, six, seven, eight, nine
+        case two, three, four, five, six, seven, eight, nine, ten
         case jack, queen, king
         
         /*
@@ -44,6 +44,8 @@ struct Card {
                 return 8
             case .nine:
                 return 9
+            case .ten:
+                return 10
             case .jack, .queen, .king:
                 return 10
             }
@@ -69,6 +71,8 @@ struct Card {
                 return Rank.eight
             case "nine":
                 return Rank.nine
+            case "ten":
+                return Rank.ten
             case "jack":
                 return Rank.jack
             case "queen":
@@ -85,7 +89,11 @@ struct Card {
     let suit: Suit
     let rank: Rank
     let cardValue: Int
-    
+    var description: String {
+        get {
+            return "Card is the \(self.rank.rawValue) of \(self.suit.rawValue) with value \(cardValue)"
+        }
+    }
     init(suit: Suit, rank: Rank) {
         self.suit = suit
         self.rank = rank
@@ -104,9 +112,15 @@ struct Card {
         else if (left.rank == right.rank) {
             return false
         }
+        else if (left.rank == Rank.ten) {
+            return true
+        }
+        else if (right.rank == Rank.ten) {
+            return false
+        }
         // check if left card is a jack (smallest valued face card)
         else if (left.rank == Rank.jack) {
-            return true
+            return (right.rank != Rank.ten)
         }
         // check if left card is a king (largest valued face card)
         else if (left.rank == Rank.king) {

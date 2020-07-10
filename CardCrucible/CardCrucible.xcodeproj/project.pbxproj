@@ -14,7 +14,18 @@
 		C96D2D1524305F3000E10B01 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C96D2D1424305F3000E10B01 /* Preview Assets.xcassets */; };
 		C96D2D1824305F3000E10B01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96D2D1624305F3000E10B01 /* LaunchScreen.storyboard */; };
 		C9EFD94824B5392700709BC9 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EFD94724B5392700709BC9 /* Card.swift */; };
+		C9EFD95224B7A70500709BC9 /* CardCrucibleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EFD95124B7A70500709BC9 /* CardCrucibleTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C9EFD95424B7A70500709BC9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C96D2D0024305F2E00E10B01 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C96D2D0724305F2E00E10B01;
+			remoteInfo = CardCrucible;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		C96D2D0824305F2E00E10B01 /* CardCrucible.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardCrucible.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,10 +37,20 @@
 		C96D2D1724305F3000E10B01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C96D2D1924305F3000E10B01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9EFD94724B5392700709BC9 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		C9EFD94F24B7A70500709BC9 /* CardCrucibleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardCrucibleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9EFD95124B7A70500709BC9 /* CardCrucibleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCrucibleTests.swift; sourceTree = "<group>"; };
+		C9EFD95324B7A70500709BC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C96D2D0524305F2E00E10B01 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9EFD94C24B7A70500709BC9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -43,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				C96D2D0A24305F2E00E10B01 /* CardCrucible */,
+				C9EFD95024B7A70500709BC9 /* CardCrucibleTests */,
 				C96D2D0924305F2E00E10B01 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				C96D2D0824305F2E00E10B01 /* CardCrucible.app */,
+				C9EFD94F24B7A70500709BC9 /* CardCrucibleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -78,6 +101,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		C9EFD95024B7A70500709BC9 /* CardCrucibleTests */ = {
+			isa = PBXGroup;
+			children = (
+				C9EFD95124B7A70500709BC9 /* CardCrucibleTests.swift */,
+				C9EFD95324B7A70500709BC9 /* Info.plist */,
+			);
+			path = CardCrucibleTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -98,18 +130,40 @@
 			productReference = C96D2D0824305F2E00E10B01 /* CardCrucible.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C9EFD94E24B7A70500709BC9 /* CardCrucibleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9EFD95624B7A70500709BC9 /* Build configuration list for PBXNativeTarget "CardCrucibleTests" */;
+			buildPhases = (
+				C9EFD94B24B7A70500709BC9 /* Sources */,
+				C9EFD94C24B7A70500709BC9 /* Frameworks */,
+				C9EFD94D24B7A70500709BC9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C9EFD95524B7A70500709BC9 /* PBXTargetDependency */,
+			);
+			name = CardCrucibleTests;
+			productName = CardCrucibleTests;
+			productReference = C9EFD94F24B7A70500709BC9 /* CardCrucibleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		C96D2D0024305F2E00E10B01 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Matthew Kressin";
 				TargetAttributes = {
 					C96D2D0724305F2E00E10B01 = {
 						CreatedOnToolsVersion = 11.3.1;
+					};
+					C9EFD94E24B7A70500709BC9 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = C96D2D0724305F2E00E10B01;
 					};
 				};
 			};
@@ -127,6 +181,7 @@
 			projectRoot = "";
 			targets = (
 				C96D2D0724305F2E00E10B01 /* CardCrucible */,
+				C9EFD94E24B7A70500709BC9 /* CardCrucibleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -139,6 +194,13 @@
 				C96D2D1824305F3000E10B01 /* LaunchScreen.storyboard in Resources */,
 				C96D2D1524305F3000E10B01 /* Preview Assets.xcassets in Resources */,
 				C96D2D1224305F3000E10B01 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9EFD94D24B7A70500709BC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,7 +218,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C9EFD94B24B7A70500709BC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9EFD95224B7A70500709BC9 /* CardCrucibleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C9EFD95524B7A70500709BC9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C96D2D0724305F2E00E10B01 /* CardCrucible */;
+			targetProxy = C9EFD95424B7A70500709BC9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C96D2D1624305F3000E10B01 /* LaunchScreen.storyboard */ = {
@@ -322,6 +400,46 @@
 			};
 			name = Release;
 		};
+		C9EFD95724B7A70500709BC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CardCrucibleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.CardCrucibleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CardCrucible.app/CardCrucible";
+			};
+			name = Debug;
+		};
+		C9EFD95824B7A70500709BC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CardCrucibleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.CardCrucibleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CardCrucible.app/CardCrucible";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -339,6 +457,15 @@
 			buildConfigurations = (
 				C96D2D1D24305F3000E10B01 /* Debug */,
 				C96D2D1E24305F3000E10B01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9EFD95624B7A70500709BC9 /* Build configuration list for PBXNativeTarget "CardCrucibleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9EFD95724B7A70500709BC9 /* Debug */,
+				C9EFD95824B7A70500709BC9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
