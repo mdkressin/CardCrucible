@@ -15,6 +15,7 @@
 		C96D2D1824305F3000E10B01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96D2D1624305F3000E10B01 /* LaunchScreen.storyboard */; };
 		C9EFD94824B5392700709BC9 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EFD94724B5392700709BC9 /* Card.swift */; };
 		C9EFD95224B7A70500709BC9 /* CardCrucibleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EFD95124B7A70500709BC9 /* CardCrucibleTests.swift */; };
+		C9EFD95C24B8194400709BC9 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EFD95B24B8194400709BC9 /* Deck.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		C9EFD94F24B7A70500709BC9 /* CardCrucibleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardCrucibleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9EFD95124B7A70500709BC9 /* CardCrucibleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCrucibleTests.swift; sourceTree = "<group>"; };
 		C9EFD95324B7A70500709BC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9EFD95B24B8194400709BC9 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				C96D2D1924305F3000E10B01 /* Info.plist */,
 				C96D2D1324305F3000E10B01 /* Preview Content */,
 				C9EFD94724B5392700709BC9 /* Card.swift */,
+				C9EFD95B24B8194400709BC9 /* Deck.swift */,
 			);
 			path = CardCrucible;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			files = (
 				C96D2D0C24305F2E00E10B01 /* AppDelegate.swift in Sources */,
 				C96D2D0E24305F2E00E10B01 /* SceneDelegate.swift in Sources */,
+				C9EFD95C24B8194400709BC9 /* Deck.swift in Sources */,
 				C96D2D1024305F2E00E10B01 /* ContentView.swift in Sources */,
 				C9EFD94824B5392700709BC9 /* Card.swift in Sources */,
 			);

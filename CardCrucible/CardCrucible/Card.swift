@@ -8,21 +8,26 @@
 
 import Foundation
 
+/// An object used in multiple games, consisting of a Card suit and a Card rank
 struct Card {
-    // The Suit of the card
-    enum Suit: String {
+    /// The Suit of the card
+    enum Suit: String, CaseIterable {
         case clubs = "Clubs", diamonds = "Diamonds", hearts = "Hearts",
             spades = "Spades"
     }
     
-    // The Rank of the card
-    enum Rank: String {
+    /// The Rank of the card
+    enum Rank: String, CaseIterable {
         case ace
         case two, three, four, five, six, seven, eight, nine, ten
         case jack, queen, king
         
-        /*
-         Returns the default value associated with the passed in rank
+        /**
+         Returns the default, numeric value associated with the passed in rank
+         
+         - Parameter rank: The Card rank to get the numeric value of.
+         
+         - Returns: The default, numeric value of the passed in rank
          */
         static func defaultValue(rank: Rank) -> Int {
             switch rank {
@@ -51,6 +56,14 @@ struct Card {
             }
         }
         
+        /**
+         Get the equivalent rank of the passed in string
+         
+         - Parameter stringRank: The string equivalent of a Card rank.
+         
+         - Returns: The Card rank equivalent of the passed in string if the string is
+                    valid, otherwise nil
+         */
         static func fromString(stringRank: String) -> Rank? {
             switch stringRank {
             case "ace":
@@ -94,15 +107,23 @@ struct Card {
             return "Card is the \(self.rank.rawValue) of \(self.suit.rawValue) with value \(cardValue)"
         }
     }
-    init(suit: Suit, rank: Rank) {
-        self.suit = suit
-        self.rank = rank
-        self.cardValue = Rank.defaultValue(rank: rank)
+    
+    /// Initializes a playing card
+    /// - Parameters:
+    ///   - suitValue: The suit of the card ("clubs", "diamonds", "heart", "spades")
+    ///   - rankValue: The rank of the card (Ace, two, three, ..., ten, jack, queen, king)
+    init(suitValue: Suit, rankValue: Rank) {
+        self.suit = suitValue
+        self.rank = rankValue
+        self.cardValue = Rank.defaultValue(rank: rankValue)
     }
     
-    /*
-     jack < queen < king
-     */
+    
+    /// Allows cards to be compared against each other based on their Card Rank
+    /// - Parameters:
+    ///   - left: The Card on the left of the less-than sign
+    ///   - right: The Card on the right of the less-than sign
+    /// - Returns: True if the Card on the left is less-than the Card on the right, otherwise false
     static func <(left: Card, right: Card) -> Bool {
         // only need to address special case for face cards
         if (left.cardValue != 10 || right.cardValue != 10) {

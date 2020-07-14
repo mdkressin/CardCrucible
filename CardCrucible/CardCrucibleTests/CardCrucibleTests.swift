@@ -10,31 +10,51 @@ import XCTest
 @testable import CardCrucible
 
 class CardCrucibleTests: XCTestCase {
-    private var suit: Card.Suit!
-    private var rank: Card.Rank!
     private var ace: Card!
+    private var eight: Card!
+    private var nine: Card!
+    private var ten: Card!
+    private var jack: Card!
+    private var queen: Card!
+    private var king: Card!
     override func setUp() {
         super.setUp()
         // Using this, a new instance of ShoppingCart will be created
         // before each test is run.
-        suit = Card.Suit.spades
-        rank = Card.Rank.ace
-        ace = Card(suit: suit, rank: rank)
+        ace = Card(suitValue: .clubs, rankValue: .ace)
+        eight = Card(suitValue: .clubs, rankValue: .eight)
+        nine = Card(suitValue: .clubs, rankValue: .nine)
+        
+        ten = Card(suitValue: .clubs, rankValue: .ten)
+        jack = Card(suitValue: .clubs, rankValue: .jack)
+        
+        queen = Card(suitValue: .clubs, rankValue: .queen)
+        king = Card(suitValue: .clubs, rankValue: .king)
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     func testValues() throws {
-        let three = Card(suit: .clubs, rank: .three)
+        let three = Card(suitValue: .clubs, rankValue: .three)
         XCTAssertTrue(three.cardValue == 3)
+
+        XCTAssertTrue(ten.cardValue == 10)
+        XCTAssertTrue(jack.cardValue == 10)
+        XCTAssertTrue(ten.cardValue == jack.cardValue)
+        
+        let twoH = Card(suitValue: .hearts, rankValue: .two)
+        let twoS = Card(suitValue: .spades, rankValue: .two)
+        XCTAssertTrue(twoH.cardValue == 2)
+        XCTAssertTrue(twoS.cardValue == 2)
+        XCTAssertTrue(twoH.cardValue == twoS.cardValue)
     }
     func testLessThan() throws {
         // test all suits
-        let twoC = Card(suit: .clubs, rank: .two)
-        let twoD = Card(suit: .diamonds, rank: .two)
-        let twoH = Card(suit: .hearts, rank: .two)
-        let twoS = Card(suit: .spades, rank: .two)
+        let twoC = Card(suitValue: .clubs, rankValue: .two)
+        let twoD = Card(suitValue: .diamonds, rankValue: .two)
+        let twoH = Card(suitValue: .hearts, rankValue: .two)
+        let twoS = Card(suitValue: .spades, rankValue: .two)
         XCTAssertTrue(ace < twoC)
         XCTAssertTrue(ace < twoD)
         XCTAssertTrue(ace < twoH)
@@ -42,18 +62,11 @@ class CardCrucibleTests: XCTestCase {
         
         XCTAssertFalse(twoS < twoC)
         
-        let eight = Card(suit: .clubs, rank: .eight)
-        let nine = Card(suit: .clubs, rank: .nine)
         XCTAssertTrue(eight < nine)
         XCTAssertFalse(nine < eight)
         
-        let ten = Card(suit: .clubs, rank: .ten)
-        let jack = Card(suit: .clubs, rank: .jack)
         XCTAssertTrue(ten < jack)
-        XCTAssertFalse( jack < ten)
-        
-        let queen = Card(suit: .clubs, rank: .queen)
-        let king = Card(suit: .clubs, rank: .king)
+        XCTAssertFalse(jack < ten)
         
         XCTAssertTrue(ten < king)
         XCTAssertTrue(queen < king)
