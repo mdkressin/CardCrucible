@@ -60,7 +60,10 @@ class CardCrucibleTests: XCTestCase {
         XCTAssertTrue(ace < twoH)
         XCTAssertTrue(ace < twoS)
         
+        // test same ranks
         XCTAssertFalse(twoS < twoC)
+        XCTAssertFalse(ten < ten)
+        XCTAssertFalse(king < king)
         
         XCTAssertTrue(eight < nine)
         XCTAssertFalse(nine < eight)
@@ -72,7 +75,6 @@ class CardCrucibleTests: XCTestCase {
         XCTAssertTrue(queen < king)
         XCTAssertFalse(king < jack)
         XCTAssertFalse(king < queen)
-        
     }
 
     /*

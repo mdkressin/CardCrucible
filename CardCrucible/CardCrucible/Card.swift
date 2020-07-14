@@ -98,20 +98,24 @@ struct Card {
         }
     }
     
-    
+    /// The suit that the card belongs to,
     let suit: Suit
+    /// The rank that the card possesses.
     let rank: Rank
+    /// The value associated with the card's rank.
     let cardValue: Int
+    /// The description of the card's suit, rank, and card value.
     var description: String {
         get {
-            return "Card is the \(self.rank.rawValue) of \(self.suit.rawValue) with value \(cardValue)"
+            return "Card is the \(self.rank.rawValue) of \(self.suit.rawValue) with a value of \(cardValue)"
         }
     }
     
     /// Initializes a playing card
     /// - Parameters:
     ///   - suitValue: The suit of the card ("clubs", "diamonds", "heart", "spades")
-    ///   - rankValue: The rank of the card (Ace, two, three, ..., ten, jack, queen, king)
+    ///   - rankValue: The rank of the card (Ace, two, three, ..., ten, jack, queen,
+    ///                 king)
     init(suitValue: Suit, rankValue: Rank) {
         self.suit = suitValue
         self.rank = rankValue
@@ -120,6 +124,9 @@ struct Card {
     
     
     /// Allows cards to be compared against each other based on their Card Rank
+    ///
+    ///Ace \< two \< three \< ... \< ten \< jack \< queen \< king
+    ///
     /// - Parameters:
     ///   - left: The Card on the left of the less-than sign
     ///   - right: The Card on the right of the less-than sign
@@ -133,9 +140,11 @@ struct Card {
         else if (left.rank == right.rank) {
             return false
         }
+        // check if left card is a ten and right is a face card
         else if (left.rank == Rank.ten) {
             return true
         }
+        // check if right card is a ten a left is a face card
         else if (right.rank == Rank.ten) {
             return false
         }
