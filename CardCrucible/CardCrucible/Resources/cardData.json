@@ -1,0 +1,340 @@
+[
+    [
+        {
+            "name": "Ace of Clubs",
+            "suit": "Clubs",
+            "rank": "ace",
+            "imageName": "AC"
+        },
+        {
+            "name": "Ace of Diamonds",
+            "suit": "Diamonds",
+            "rank": "ace",
+            "imageName": "AD"
+        },
+        {
+            "name": "Ace of Hearts",
+            "suit": "Hearts",
+            "rank": "ace",
+            "imageName": "AH"
+        },
+        {
+            "name": "Ace of Spades",
+            "suit": "Spades",
+            "rank": "ace",
+            "imageName": "AS"
+        }
+    ],
+    [
+        {
+            "name": "2 of Clubs",
+            "suit": "Clubs",
+            "rank": "two",
+            "imageName": "2C"
+        },
+        {
+            "name": "2 of Diamonds",
+            "suit": "Diamonds",
+            "rank": "two",
+            "imageName": "2D"
+        },
+        {
+            "name": "2 of Hearts",
+            "suit": "Hearts",
+            "rank": "two",
+            "imageName": "2H"
+        },
+        {
+            "name": "2 of Spades",
+            "suit": "Spades",
+            "rank": "two",
+            "imageName": "2S"
+        }
+    ],
+    [
+        {
+            "name": "3 of Clubs",
+            "suit": "Clubs",
+            "rank": "three",
+            "imageName": "3C"
+        },
+        {
+            "name": "3 of Diamonds",
+            "suit": "Diamonds",
+            "rank": "three",
+            "imageName": "3D"
+        },
+        {
+            "name": "3 of Hearts",
+            "suit": "Hearts",
+            "rank": "three",
+            "imageName": "3H"
+        },
+        {
+            "name": "3 of Spades",
+            "suit": "Spades",
+            "rank": "three",
+            "imageName": "3S"
+        }
+    ],
+    [
+        {
+            "name": "4 of Clubs",
+            "suit": "Clubs",
+            "rank": "four",
+            "imageName": "4C"
+        },
+        {
+            "name": "4 of Diamonds",
+            "suit": "Diamonds",
+            "rank": "four",
+            "imageName": "4D"
+        },
+        {
+            "name": "4 of Hearts",
+            "suit": "Hearts",
+            "rank": "four",
+            "imageName": "4H"
+        },
+        {
+            "name": "4 of Spades",
+            "suit": "Spades",
+            "rank": "four",
+            "imageName": "4S"
+        }
+    ],
+    [
+        {
+            "name": "5 of Clubs",
+            "suit": "Clubs",
+            "rank": "five",
+            "imageName": "5C"
+        },
+        {
+            "name": "5 of Diamonds",
+            "suit": "Diamonds",
+            "rank": "five",
+            "imageName": "5D"
+        },
+        {
+            "name": "5 of Hearts",
+            "suit": "Hearts",
+            "rank": "five",
+            "imageName": "5H"
+        },
+        {
+            "name": "5 of Spades",
+            "suit": "Spades",
+            "rank": "five",
+            "imageName": "5S"
+        }
+    ],
+    [
+        {
+            "name": "6 of Clubs",
+            "suit": "Clubs",
+            "rank": "six",
+            "imageName": "6C"
+        },
+        {
+            "name": "6 of Diamonds",
+            "suit": "Diamonds",
+            "rank": "six",
+            "imageName": "6D"
+        },
+        {
+            "name": "6 of Hearts",
+            "suit": "Hearts",
+            "rank": "six",
+            "imageName": "6H"
+        },
+        {
+            "name": "6 of Spades",
+            "suit": "Spades",
+            "rank": "six",
+            "imageName": "6S"
+        }
+    ],
+    [
+        {
+            "name": "7 of Clubs",
+            "suit": "Clubs",
+            "rank": "seven",
+            "imageName": "7C"
+        },
+        {
+            "name": "7 of Diamonds",
+            "suit": "Diamonds",
+            "rank": "seven",
+            "imageName": "7D"
+        },
+        {
+            "name": "7 of Hearts",
+            "suit": "Hearts",
+            "rank": "seven",
+            "imageName": "7H"
+        },
+        {
+            "name": "7 of Spades",
+            "suit": "Spades",
+            "rank": "seven",
+            "imageName": "7S"
+        }
+    ],
+    [
+        {
+            "name": "8 of Clubs",
+            "suit": "Clubs",
+            "rank": "eight",
+            "imageName": "8C"
+        },
+        {
+            "name": "8 of Diamonds",
+            "suit": "Diamonds",
+            "rank": "eight",
+            "imageName": "8D"
+        },
+        {
+            "name": "8 of Hearts",
+            "suit": "Hearts",
+            "rank": "eight",
+            "imageName": "8H"
+        },
+        {
+            "name": "8 of Spades",
+            "suit": "Spades",
+            "rank": "eight",
+            "imageName": "8S"
+        }
+    ],
+    [
+        {
+            "name": "9 of Clubs",
+            "suit": "Clubs",
+            "rank": "nine",
+            "imageName": "9C"
+        },
+        {
+            "name": "9 of Diamonds",
+            "suit": "Diamonds",
+            "rank": "nine",
+            "imageName": "9D"
+        },
+        {
+            "name": "9 of Hearts",
+            "suit": "Hearts",
+            "rank": "nine",
+            "imageName": "9H"
+        },
+        {
+            "name": "9 of Spades",
+            "suit": "Spades",
+            "rank": "nine",
+            "imageName": "9S"
+        }
+    ],
+    [
+        {
+            "name": "10 of Clubs",
+            "suit": "Clubs",
+            "rank": "ten",
+            "imageName": "10C"
+        },
+        {
+            "name": "10 of Diamonds",
+            "suit": "Diamonds",
+            "rank": "ten",
+            "imageName": "10D"
+        },
+        {
+            "name": "10 of Hearts",
+            "suit": "Hearts",
+            "rank": "ten",
+            "imageName": "10H"
+        },
+        {
+            "name": "10 of Spades",
+            "suit": "Spades",
+            "rank": "ten",
+            "imageName": "10S"
+        }
+    ],
+    [
+        {
+            "name": "J of Clubs",
+            "suit": "Clubs",
+            "rank": "jack",
+            "imageName": "JC"
+        },
+        {
+            "name": "J of Diamonds",
+            "suit": "Diamonds",
+            "rank": "jack",
+            "imageName": "JD"
+        },
+        {
+            "name": "J of Hearts",
+            "suit": "Hearts",
+            "rank": "jack",
+            "imageName": "JH"
+        },
+        {
+            "name": "J of Spades",
+            "suit": "Spades",
+            "rank": "jack",
+            "imageName": "JS"
+        }
+    ],
+    [
+        {
+            "name": "Q of Clubs",
+            "suit": "Clubs",
+            "rank": "queen",
+            "imageName": "QC"
+        },
+        {
+            "name": "Q of Diamonds",
+            "suit": "Diamonds",
+            "rank": "queen",
+            "imageName": "QD"
+        },
+        {
+            "name": "Q of Hearts",
+            "suit": "Hearts",
+            "rank": "queen",
+            "imageName": "QH"
+        },
+        {
+            "name": "Q of Spades",
+            "suit": "Spades",
+            "rank": "queen",
+            "imageName": "QS"
+        }
+    ],
+    [
+        {
+            "name": "K of Clubs",
+            "suit": "Clubs",
+            "rank": "king",
+            "imageName": "KC"
+        },
+        {
+            "name": "K of Diamonds",
+            "suit": "Diamonds",
+            "rank": "king",
+            "imageName": "KD"
+        },
+        {
+            "name": "K of Hearts",
+            "suit": "Hearts",
+            "rank": "king",
+            "imageName": "KH"
+        },
+        {
+            "name": "K of Spades",
+            "suit": "Spades",
+            "rank": "king",
+            "imageName": "KS"
+        }
+    ]
+]

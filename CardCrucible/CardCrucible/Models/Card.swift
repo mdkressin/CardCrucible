@@ -1,6 +1,6 @@
 //
 //  Card.swift
-//  CardCrucible
+//  CardCrucible/Models
 //
 //  Created by Matthew Kressin on 7/7/20.
 //  Copyright © 2020 Matthew Kressin. All rights reserved.

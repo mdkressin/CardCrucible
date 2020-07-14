@@ -1,5 +1,5 @@
 //
-//  CardCrucibleTests.swift
+//  CardTests.swift
 //  CardCrucibleTests
 //
 //  Created by Matthew Kressin on 7/9/20.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import CardCrucible
 
-class CardCrucibleTests: XCTestCase {
+class CardTests: XCTestCase {
     private var ace: Card!
     private var eight: Card!
     private var nine: Card!
