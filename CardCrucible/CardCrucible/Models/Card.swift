@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import SwiftUI
+import SwiftyJSON
 
 /// An object used in multiple games, consisting of a Card suit and a Card rank
 struct Card {
@@ -111,7 +113,13 @@ struct Card {
         }
     }
     
+    /// The name of the image to be used to display the card
+    fileprivate let imageName: String
+    /// JSON object containing the image names for all 52 cards in a deck
+    fileprivate static var cardsJSON: JSON? = readInJSON(fileName: "cardData")
+    
     /// Initializes a playing card
+    ///
     /// - Parameters:
     ///   - suitValue: The suit of the card ("clubs", "diamonds", "heart", "spades")
     ///   - rankValue: The rank of the card (Ace, two, three, ..., ten, jack, queen,
@@ -120,8 +128,55 @@ struct Card {
         self.suit = suitValue
         self.rank = rankValue
         self.cardValue = Rank.defaultValue(rank: rankValue)
+        self.imageName = Card.getImageName(suit: suitValue, rank: rankValue)
     }
     
+    /**
+     Create a JSON object by reading in the data from the file of the passed in name.
+     
+     - Requires: [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
+     
+     - Parameter fileName: The name of the file to read the data from.
+     
+     - Returns: A JSON object of the data read in from the specified file, or nil if an
+     error occurred.
+     
+     - Note: Using code from [stackoverflow answer](https://stackoverflow.com/a/28644494)
+     */
+    fileprivate static func readInJSON(fileName: String) -> JSON? {
+        if let path = Bundle.main.path(forResource: fileName,
+                                       ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+                let jsonObj = try JSON(data: data)
+                return jsonObj
+            } catch let error {
+                print("parse error: \(error.localizedDescription)")
+                return nil
+            }
+        } else {
+            print("Invalid filename/path.")
+            return nil
+        }
+    }
+    
+    /**
+     Gets the image name of the card to display.
+     
+     - Important: Will throw a fatalError() if Card.cardsJSON is nil.
+     
+     - Parameters:
+         - suit: The suit of the card to display.
+         - rank: The rank of the card to display.
+     
+     - Returns: The name of the card image corresponding to the passed in suit and Rank.
+     */
+    fileprivate static func getImageName(suit: Suit, rank: Rank) -> String {
+        guard Card.cardsJSON != nil else {
+            fatalError("error trying to read in card image names")
+        }
+        return Card.cardsJSON![suit.rawValue][rank.rawValue].stringValue
+    }
     
     /// Allows cards to be compared against each other based on their Card Rank
     ///
@@ -130,6 +185,7 @@ struct Card {
     /// - Parameters:
     ///   - left: The Card on the left of the less-than sign
     ///   - right: The Card on the right of the less-than sign
+    ///
     /// - Returns: True if the Card on the left is less-than the Card on the right, otherwise false
     static func <(left: Card, right: Card) -> Bool {
         // only need to address special case for face cards

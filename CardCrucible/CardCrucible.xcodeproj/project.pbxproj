@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		C96D2D1224305F3000E10B01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C96D2D1124305F3000E10B01 /* Assets.xcassets */; };
 		C96D2D1524305F3000E10B01 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C96D2D1424305F3000E10B01 /* Preview Assets.xcassets */; };
 		C96D2D1824305F3000E10B01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96D2D1624305F3000E10B01 /* LaunchScreen.storyboard */; };
+		C971255B24C243B9000DCFC8 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = C971255A24C243B9000DCFC8 /* SwiftyJSON */; };
 		C9EFD94824B5392700709BC9 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EFD94724B5392700709BC9 /* Card.swift */; };
 		C9EFD95224B7A70500709BC9 /* CardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EFD95124B7A70500709BC9 /* CardTests.swift */; };
 		C9EFD95C24B8194400709BC9 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EFD95B24B8194400709BC9 /* Deck.swift */; };
@@ -53,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C971255B24C243B9000DCFC8 /* SwiftyJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,7 +71,6 @@
 		C935EC0B24BE5A9B00948554 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C935EC0C24BE5AD100948554 /* cardData.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -109,6 +110,7 @@
 				C96D2D0D24305F2E00E10B01 /* SceneDelegate.swift */,
 				C96D2D0F24305F2E00E10B01 /* ContentView.swift */,
 				C96D2D1124305F3000E10B01 /* Assets.xcassets */,
+				C935EC0C24BE5AD100948554 /* cardData.json */,
 				C96D2D1624305F3000E10B01 /* LaunchScreen.storyboard */,
 				C96D2D1924305F3000E10B01 /* Info.plist */,
 				C935EC0924BE572C00948554 /* CardImage.swift */,
@@ -151,6 +153,9 @@
 			dependencies = (
 			);
 			name = CardCrucible;
+			packageProductDependencies = (
+				C971255A24C243B9000DCFC8 /* SwiftyJSON */,
+			);
 			productName = CardCrucible;
 			productReference = C96D2D0824305F2E00E10B01 /* CardCrucible.app */;
 			productType = "com.apple.product-type.application";
@@ -201,6 +206,9 @@
 				Base,
 			);
 			mainGroup = C96D2CFF24305F2E00E10B01;
+			packageReferences = (
+				C971255924C243B9000DCFC8 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = C96D2D0924305F2E00E10B01 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -499,6 +507,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C971255924C243B9000DCFC8 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C971255A24C243B9000DCFC8 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C971255924C243B9000DCFC8 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C96D2D0024305F2E00E10B01 /* Project object */;
 }

@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import SwiftyJSON
 @testable import CardCrucible
 
 class CardTests: XCTestCase {
@@ -30,10 +31,25 @@ class CardTests: XCTestCase {
         
         queen = Card(suitValue: .clubs, rankValue: .queen)
         king = Card(suitValue: .clubs, rankValue: .king)
+        
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+    }
+    func testCardDataJSON() throws {
+        if let path = Bundle.main.path(forResource: "cardData", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+                let jsonObj = try JSON(data: data)
+                print("\(jsonObj[Card.Suit.diamonds.rawValue][Card.Rank.queen.rawValue].stringValue)")
+                print("jsonData:\(jsonObj)")
+            } catch let error {
+                XCTFail("parse error: \(error.localizedDescription)")
+            }
+        } else {
+            XCTFail("Invalid filename/path.")
+        }
     }
     func testValues() throws {
         let three = Card(suitValue: .clubs, rankValue: .three)

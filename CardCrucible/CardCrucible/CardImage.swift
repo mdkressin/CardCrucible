@@ -10,7 +10,10 @@ import SwiftUI
 
 struct CardImage: View {
     var body: some View {
-        Image("2C")
+        Image("KD")
+            .clipShape(Rectangle())
+            .overlay(Rectangle().stroke(Color.white, lineWidth: 4))
+        .shadow(radius: 10)
     }
 }
 
