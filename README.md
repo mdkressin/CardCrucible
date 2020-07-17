@@ -1,1 +1,3 @@
 # CardCrucible
+
+added SwiftyJSON dependency
