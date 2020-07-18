@@ -65,7 +65,7 @@ class CardTests: XCTestCase {
         XCTAssertTrue(twoS.cardValue == 2)
         XCTAssertTrue(twoH.cardValue == twoS.cardValue)
     }
-    func testLessThan() throws {
+    func testLessThanSlash() throws {
         // test all suits
         let twoC = Card(suitValue: .clubs, rankValue: .two)
         let twoD = Card(suitValue: .diamonds, rankValue: .two)

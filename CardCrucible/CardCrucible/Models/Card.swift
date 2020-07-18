@@ -11,7 +11,7 @@ import SwiftUI
 import SwiftyJSON
 
 /// An object used in multiple games, consisting of a Card suit and a Card rank
-struct Card {
+struct Card: Equatable {
     /// The Suit of the card
     enum Suit: String, CaseIterable {
         case clubs = "Clubs", diamonds = "Diamonds", hearts = "Hearts",
@@ -176,6 +176,10 @@ struct Card {
             fatalError("error trying to read in card image names")
         }
         return Card.cardsJSON![suit.rawValue][rank.rawValue].stringValue
+    }
+    
+    static func ==(left: Card, right: Card) -> Bool {
+        return left.suit == right.suit && left.rank == right.rank
     }
 }
 

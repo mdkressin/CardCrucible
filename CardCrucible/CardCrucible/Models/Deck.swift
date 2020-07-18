@@ -8,44 +8,56 @@
 
 import Foundation
 
-/// A deck containing a multiple of all 52 individual cards
+/**
+ A main deck containing 0-10 (inclusive) sub-decks, with each sub-deck containing all 52 individual cards
+ 
+ - Requires: Card struct from Card.swift
+ 
+ - Note:
+    - The main deck is an array containing all the cards of its sub-decks, and not the sub-decks themselves
+        - A main deck with a single sub-deck will consist of an array of 52 cards
+        - A main deck with two sub-decks will consist of an array of 104 cards, and so on
+ */
 struct Deck {
-    
-    // Mark: - SizeConstraints
-    
-    /// Ensures that there is an upper and lower limit for the amount of sub-decks allowed
-    /// for the main deck
+    /**
+     Ensures that there is an upper and lower limit for the amount of sub-decks allowed for
+     the main deck
+     
+     Upper limit is 10. Lower limit is 0.
+     */
     @propertyWrapper
-    struct MultipleOf52Limit {
+    struct AllowedNumSubDecks {
         /// The maximum amount of sub-decks allowed
-        let maxNumDecks = 10
+        static let maxNumSubDecks = 10
         /// The minimum amount of sub-decks allowed
-        let minNumDecks = 0
+        static let minNumSubDecks = 0
         /// The number of sub-decks that has been forced within the minimum and
         /// maximum constraints
-        var numDecks: Int
+        var numSubDecks: Int
         init(wrappedValue: Int) {
-            numDecks = min(wrappedValue, maxNumDecks)
-            numDecks = max(numDecks, minNumDecks)
+            numSubDecks = min(wrappedValue, AllowedNumSubDecks.maxNumSubDecks)
+            numSubDecks = max(numSubDecks, AllowedNumSubDecks.minNumSubDecks)
         }
         
         var wrappedValue: Int {
-            get { return numDecks }
+            get { return numSubDecks }
             set {
-                numDecks = min(newValue, maxNumDecks)
-                numDecks = max(numDecks, minNumDecks)
+                numSubDecks = min(newValue, AllowedNumSubDecks.maxNumSubDecks)
+                numSubDecks = max(numSubDecks, AllowedNumSubDecks.minNumSubDecks)
             }
         }
     }
-    /// The default amount of cards inside a single deck
-    let defaultDeckSize = 52
+    /// The default amount of cards inside a single sub-deck
+    static let defaultDeckSize = 52
     
-    private var decks: [Card]?
-    var deck: [Card]? {
+    /// The main deck consisting of potentially several sub-decks
+    private var decks: [Card] = []
+    /// Getter for the main deck.
+    var deck: [Card] {
         get { return decks }
     }
     /// The number of sub-decks this instance is using.
-    @MultipleOf52Limit private var numDecks: Int
+    @AllowedNumSubDecks private var numDecks: Int
     
     /**
      Initializes a new deck that has a specified number of sub-decks within it.
@@ -65,12 +77,15 @@ struct Deck {
      specified during initialization
      */
     @discardableResult
-    mutating func createDeck() -> [Card]? {
+    mutating func createDeck() -> [Card] {
+        // erase current decks if they exist
+        decks.removeAll()
+        
         // loop to create sub-decks
-        for _ in 0...numDecks {
+        for _ in 0..<numDecks {
             for suit in Card.Suit.allCases {
                 for rank in Card.Rank.allCases {
-                    decks!.append(Card(suitValue: suit, rankValue: rank))
+                    decks.append(Card(suitValue: suit, rankValue: rank))
                 }
             }
             
@@ -86,7 +101,14 @@ struct Deck {
     func drawCards(drawAmount: Int) {
         
     }
-    
+    // TODO: allow card to be drawn randomly from deck
+    func drawRandomCard() {
+        
+    }
+    // TODO: allow multiple cards to be drawn randomly from deck
+    func drawRandomCards(drawAmount: Int) {
+        
+    }
     // TODO: shuffle the cards in the deck
     func shuffle() {
         

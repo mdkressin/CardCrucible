@@ -14,7 +14,7 @@ struct ContentView: View {
             Text("Card Crucible")
                 .font(.title)
                 .bold()
-            CardImage(resizeRatio: 0.5, imageName: "JH")
+            CardImage(resizeRatio: 0.5, imageName: "KH")
                 
         }
     }
