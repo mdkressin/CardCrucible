@@ -71,26 +71,26 @@ class CardTests: XCTestCase {
         let twoD = Card(suitValue: .diamonds, rankValue: .two)
         let twoH = Card(suitValue: .hearts, rankValue: .two)
         let twoS = Card(suitValue: .spades, rankValue: .two)
-        XCTAssertTrue(ace < twoC)
-        XCTAssertTrue(ace < twoD)
-        XCTAssertTrue(ace < twoH)
-        XCTAssertTrue(ace < twoS)
+        XCTAssertTrue(ace </ twoC)
+        XCTAssertTrue(ace </ twoD)
+        XCTAssertTrue(ace </ twoH)
+        XCTAssertTrue(ace </ twoS)
         
         // test same ranks
-        XCTAssertFalse(twoS < twoC)
-        XCTAssertFalse(ten < ten)
-        XCTAssertFalse(king < king)
+        XCTAssertFalse(twoS </ twoC)
+        XCTAssertFalse(ten </ ten)
+        XCTAssertFalse(king </ king)
         
-        XCTAssertTrue(eight < nine)
-        XCTAssertFalse(nine < eight)
+        XCTAssertTrue(eight </ nine)
+        XCTAssertFalse(nine </ eight)
         
-        XCTAssertTrue(ten < jack)
-        XCTAssertFalse(jack < ten)
+        XCTAssertTrue(ten </ jack)
+        XCTAssertFalse(jack </ ten)
         
-        XCTAssertTrue(ten < king)
-        XCTAssertTrue(queen < king)
-        XCTAssertFalse(king < jack)
-        XCTAssertFalse(king < queen)
+        XCTAssertTrue(ten </ king)
+        XCTAssertTrue(queen </ king)
+        XCTAssertFalse(king </ jack)
+        XCTAssertFalse(king </ queen)
     }
 
     /*

@@ -177,51 +177,54 @@ struct Card {
         }
         return Card.cardsJSON![suit.rawValue][rank.rawValue].stringValue
     }
-    
-    /// Allows cards to be compared against each other based on their Card Rank
-    ///
-    ///Ace \< two \< three \< ... \< ten \< jack \< queen \< king
-    ///
-    /// - Parameters:
-    ///   - left: The Card on the left of the less-than sign
-    ///   - right: The Card on the right of the less-than sign
-    ///
-    /// - Returns: True if the Card on the left is less-than the Card on the right, otherwise false
-    static func <(left: Card, right: Card) -> Bool {
-        // only need to address special case for face cards
-        if (left.cardValue != 10 || right.cardValue != 10) {
-            return left.cardValue < right.cardValue
-        }
-        // check if cards have the same rank
-        else if (left.rank == right.rank) {
-            return false
-        }
-        // check if left card is a ten and right is a face card
-        else if (left.rank == Rank.ten) {
-            return true
-        }
-        // check if right card is a ten a left is a face card
-        else if (right.rank == Rank.ten) {
-            return false
-        }
-        // check if left card is a jack (smallest valued face card)
-        else if (left.rank == Rank.jack) {
-            return (right.rank != Rank.ten)
-        }
-        // check if left card is a king (largest valued face card)
-        else if (left.rank == Rank.king) {
-            return false
-        }
-        // left card is a queen and right card is either a jack or king, so we
-        // can switch the ordering and return the opposite result
-        else {
-            return !(right < left)
-        }
-    }
 }
 
 extension Card {
     var image: Image {
         Image(imageName)
+    }
+}
+
+
+infix operator </ : AssignmentPrecedence
+
+/// Allows cards to be compared against each other based on their Card Rank
+///
+///Ace \< two \< three \< ... \< ten \< jack \< queen \< king
+///
+/// - Parameters:
+///   - left: The Card on the left of the less-than sign
+///   - right: The Card on the right of the less-than sign
+///
+/// - Returns: True if the Card on the left is less-than the Card on the right, otherwise false
+func </ (left: Card, right: Card) -> Bool {
+    // only need to address special case for face cards
+    if (left.cardValue != 10 || right.cardValue != 10) {
+        return left.cardValue < right.cardValue
+    }
+        // check if cards have the same rank
+    else if (left.rank == right.rank) {
+        return false
+    }
+        // check if left card is a ten and right is a face card
+    else if (left.rank == Card.Rank.ten) {
+        return true
+    }
+        // check if right card is a ten a left is a face card
+    else if (right.rank == Card.Rank.ten) {
+        return false
+    }
+        // check if left card is a jack (smallest valued face card)
+    else if (left.rank == Card.Rank.jack) {
+        return (right.rank != Card.Rank.ten)
+    }
+        // check if left card is a king (largest valued face card)
+    else if (left.rank == Card.Rank.king) {
+        return false
+    }
+        // left card is a queen and right card is either a jack or king, so we
+        // can switch the ordering and return the opposite result
+    else {
+        return !(right </ left)
     }
 }

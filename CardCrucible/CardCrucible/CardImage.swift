@@ -9,18 +9,21 @@
 import SwiftUI
 
 struct CardImage: View {
-    let widthRatio = 250.0
-    let heightRatio = 350.0
+    let widthRatio: CGFloat = 250.0
+    let heightRatio: CGFloat = 350.0
+    var resizeRatio: CGFloat
+    var imageName: String
+    
     var body: some View {
-        Image("KD")
+        Image(imageName)
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .frame(width: CGFloat(0.5*widthRatio), height: CGFloat(0.5*heightRatio))
+            .frame(width: resizeRatio*widthRatio, height: resizeRatio*heightRatio)
     }
 }
 
 struct CardImage_Previews: PreviewProvider {
     static var previews: some View {
-        CardImage()
+        CardImage(resizeRatio: 0.5, imageName: "KD")
     }
 }
