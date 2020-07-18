@@ -47,6 +47,7 @@ struct Deck {
             }
         }
     }
+    
     /// The default amount of cards inside a single sub-deck
     static let defaultDeckSize = 52
     
@@ -55,6 +56,10 @@ struct Deck {
     /// Getter for the main deck.
     var deck: [Card] {
         get { return decks }
+    }
+    /// Getter for the amount of cards in the main deck
+    var deckSize: Int {
+        get { decks.count }
     }
     /// The number of sub-decks this instance is using.
     @AllowedNumSubDecks private var numDecks: Int
@@ -94,20 +99,26 @@ struct Deck {
     }
     
     // TODO: allow card to be drawn from deck
-    func drawCard() {
-        
+    /**
+     Draw the card from the top of the deck (0th index)
+     
+     - Precondition: There must be at least one card in the deck to be able to draw a card from it
+     */
+    func drawCard() -> Card? {
+        precondition(deckSize > 0)
+        return nil
     }
     // TODO: allow multiple cards to be drawn
-    func drawCards(drawAmount: Int) {
-        
+    func drawCards(drawAmount: Int) -> [Card]? {
+        return nil
     }
     // TODO: allow card to be drawn randomly from deck
-    func drawRandomCard() {
-        
+    func drawRandomCard() -> Card? {
+        return nil
     }
     // TODO: allow multiple cards to be drawn randomly from deck
-    func drawRandomCards(drawAmount: Int) {
-        
+    func drawRandomCards(drawAmount: Int) -> [Card]? {
+        return nil
     }
     // TODO: shuffle the cards in the deck
     func shuffle() {

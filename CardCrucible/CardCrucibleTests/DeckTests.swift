@@ -154,6 +154,28 @@ class DeckTests: XCTestCase {
         XCTAssertEqual(i, deckSize)
     }
     
+    func testDrawCard() {
+        var firstCard = testDeck.deck[0]
+        var drawnCard = testDeck.drawCard()
+        XCTAssertEqual(firstCard, drawnCard)
+        XCTAssertEqual(testDeck.deckSize, deckSize-1)
+        
+        firstCard = testDeck.deck[0]
+        drawnCard = testDeck.drawCard()
+        XCTAssertEqual(firstCard, drawnCard)
+        XCTAssertEqual(testDeck.deckSize, deckSize-1)
+        
+        /*
+         The original first card was already removed from the deck
+         so the original second card is now the new first carde in
+         the deck
+         */
+        var secondCard = testDeck.deck[0]
+        drawnCard = testDeck.drawCard()
+        XCTAssertEqual(secondCard, drawnCard)
+        XCTAssertEqual(testDeck.deckSize, deckSize-2)
+        XCTAssertNotEqual(firstCard, secondCard)
+    }
     /**
      Manually creates a deck of 52 cards containing all Card suits and all Card ranks per suit
      
