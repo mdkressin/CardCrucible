@@ -188,10 +188,20 @@ extension Card {
         Image(imageName)
     }
 }
-
+infix operator =/ : AssignmentPrecedence
+func =/(left: [Card], right: [Card]) -> Bool {
+    guard left.count == right.count else {
+        return false
+    }
+    for i in 0..<left.count {
+        if left[i] != right[i] {
+            return false
+        }
+    }
+    return true
+}
 
 infix operator </ : AssignmentPrecedence
-
 /// Allows cards to be compared against each other based on their Card Rank
 ///
 ///Ace \< two \< three \< ... \< ten \< jack \< queen \< king

@@ -18,7 +18,7 @@ import Foundation
         - A main deck with a single sub-deck will consist of an array of 52 cards
         - A main deck with two sub-decks will consist of an array of 104 cards, and so on
  */
-struct Deck {
+struct Deck: Equatable {
     /**
      Ensures that there is an upper and lower limit for the amount of sub-decks allowed for
      the main deck
@@ -123,5 +123,13 @@ struct Deck {
     // TODO: shuffle the cards in the deck
     func shuffle() {
         
+    }
+    
+    static func ==(left: Deck, right: Deck) -> Bool {
+        guard left.numDecks == right.numDecks else {
+            return false
+        }
+
+        return left.decks =/ right.decks
     }
 }
