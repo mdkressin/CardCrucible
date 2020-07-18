@@ -9,11 +9,13 @@
 import SwiftUI
 
 struct CardImage: View {
+    let widthRatio = 250.0
+    let heightRatio = 350.0
     var body: some View {
         Image("KD")
-            .clipShape(Rectangle())
-            .overlay(Rectangle().stroke(Color.white, lineWidth: 4))
-        .shadow(radius: 10)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: CGFloat(0.5*widthRatio), height: CGFloat(0.5*heightRatio))
     }
 }
 

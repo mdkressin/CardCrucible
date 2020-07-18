@@ -219,3 +219,9 @@ struct Card {
         }
     }
 }
+
+extension Card {
+    var image: Image {
+        Image(imageName)
+    }
+}
