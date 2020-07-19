@@ -3,22 +3,34 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C935EC0A24BE572C00948554 /* CardImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C935EC0924BE572C00948554 /* CardImage.swift */; };
+		C935EC0D24BE5AD100948554 /* cardData.json in Resources */ = {isa = PBXBuildFile; fileRef = C935EC0C24BE5AD100948554 /* cardData.json */; };
 		C96D2D0C24305F2E00E10B01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96D2D0B24305F2E00E10B01 /* AppDelegate.swift */; };
 		C96D2D0E24305F2E00E10B01 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96D2D0D24305F2E00E10B01 /* SceneDelegate.swift */; };
 		C96D2D1024305F2E00E10B01 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96D2D0F24305F2E00E10B01 /* ContentView.swift */; };
 		C96D2D1224305F3000E10B01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C96D2D1124305F3000E10B01 /* Assets.xcassets */; };
 		C96D2D1524305F3000E10B01 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C96D2D1424305F3000E10B01 /* Preview Assets.xcassets */; };
 		C96D2D1824305F3000E10B01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96D2D1624305F3000E10B01 /* LaunchScreen.storyboard */; };
+		C971255B24C243B9000DCFC8 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = C971255A24C243B9000DCFC8 /* SwiftyJSON */; };
+		C9B9236D24C3777C00D450A8 /* CardCrucibleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B9236C24C3777C00D450A8 /* CardCrucibleUITests.swift */; };
+		C9B9237524C378B900D450A8 /* DeckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B9237424C378B900D450A8 /* DeckTests.swift */; };
 		C9EFD94824B5392700709BC9 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EFD94724B5392700709BC9 /* Card.swift */; };
-		C9EFD95224B7A70500709BC9 /* CardCrucibleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EFD95124B7A70500709BC9 /* CardCrucibleTests.swift */; };
+		C9EFD95224B7A70500709BC9 /* CardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EFD95124B7A70500709BC9 /* CardTests.swift */; };
 		C9EFD95C24B8194400709BC9 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EFD95B24B8194400709BC9 /* Deck.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C9B9236F24C3777C00D450A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C96D2D0024305F2E00E10B01 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C96D2D0724305F2E00E10B01;
+			remoteInfo = CardCrucible;
+		};
 		C9EFD95424B7A70500709BC9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C96D2D0024305F2E00E10B01 /* Project object */;
@@ -29,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C935EC0924BE572C00948554 /* CardImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardImage.swift; sourceTree = "<group>"; };
+		C935EC0C24BE5AD100948554 /* cardData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cardData.json; sourceTree = "<group>"; };
 		C96D2D0824305F2E00E10B01 /* CardCrucible.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardCrucible.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C96D2D0B24305F2E00E10B01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C96D2D0D24305F2E00E10B01 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,15 +51,27 @@
 		C96D2D1424305F3000E10B01 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C96D2D1724305F3000E10B01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C96D2D1924305F3000E10B01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9B9236A24C3777C00D450A8 /* CardCrucibleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardCrucibleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9B9236C24C3777C00D450A8 /* CardCrucibleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCrucibleUITests.swift; sourceTree = "<group>"; };
+		C9B9236E24C3777C00D450A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9B9237424C378B900D450A8 /* DeckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckTests.swift; sourceTree = "<group>"; };
 		C9EFD94724B5392700709BC9 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		C9EFD94F24B7A70500709BC9 /* CardCrucibleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardCrucibleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C9EFD95124B7A70500709BC9 /* CardCrucibleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCrucibleTests.swift; sourceTree = "<group>"; };
+		C9EFD95124B7A70500709BC9 /* CardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTests.swift; sourceTree = "<group>"; };
 		C9EFD95324B7A70500709BC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9EFD95B24B8194400709BC9 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C96D2D0524305F2E00E10B01 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C971255B24C243B9000DCFC8 /* SwiftyJSON in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9B9236724C3777C00D450A8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -62,11 +88,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C935EC0B24BE5A9B00948554 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C935EC0E24BE664D00948554 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C9EFD95B24B8194400709BC9 /* Deck.swift */,
+				C9EFD94724B5392700709BC9 /* Card.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		C96D2CFF24305F2E00E10B01 = {
 			isa = PBXGroup;
 			children = (
 				C96D2D0A24305F2E00E10B01 /* CardCrucible */,
 				C9EFD95024B7A70500709BC9 /* CardCrucibleTests */,
+				C9B9236B24C3777C00D450A8 /* CardCrucibleUITests */,
 				C96D2D0924305F2E00E10B01 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -76,6 +119,7 @@
 			children = (
 				C96D2D0824305F2E00E10B01 /* CardCrucible.app */,
 				C9EFD94F24B7A70500709BC9 /* CardCrucibleTests.xctest */,
+				C9B9236A24C3777C00D450A8 /* CardCrucibleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,15 +127,17 @@
 		C96D2D0A24305F2E00E10B01 /* CardCrucible */ = {
 			isa = PBXGroup;
 			children = (
+				C935EC0E24BE664D00948554 /* Models */,
 				C96D2D0B24305F2E00E10B01 /* AppDelegate.swift */,
 				C96D2D0D24305F2E00E10B01 /* SceneDelegate.swift */,
 				C96D2D0F24305F2E00E10B01 /* ContentView.swift */,
 				C96D2D1124305F3000E10B01 /* Assets.xcassets */,
+				C935EC0C24BE5AD100948554 /* cardData.json */,
 				C96D2D1624305F3000E10B01 /* LaunchScreen.storyboard */,
 				C96D2D1924305F3000E10B01 /* Info.plist */,
+				C935EC0924BE572C00948554 /* CardImage.swift */,
+				C935EC0B24BE5A9B00948554 /* Resources */,
 				C96D2D1324305F3000E10B01 /* Preview Content */,
-				C9EFD94724B5392700709BC9 /* Card.swift */,
-				C9EFD95B24B8194400709BC9 /* Deck.swift */,
 			);
 			path = CardCrucible;
 			sourceTree = "<group>";
@@ -104,11 +150,21 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		C9B9236B24C3777C00D450A8 /* CardCrucibleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C9B9236C24C3777C00D450A8 /* CardCrucibleUITests.swift */,
+				C9B9236E24C3777C00D450A8 /* Info.plist */,
+			);
+			path = CardCrucibleUITests;
+			sourceTree = "<group>";
+		};
 		C9EFD95024B7A70500709BC9 /* CardCrucibleTests */ = {
 			isa = PBXGroup;
 			children = (
-				C9EFD95124B7A70500709BC9 /* CardCrucibleTests.swift */,
+				C9EFD95124B7A70500709BC9 /* CardTests.swift */,
 				C9EFD95324B7A70500709BC9 /* Info.plist */,
+				C9B9237424C378B900D450A8 /* DeckTests.swift */,
 			);
 			path = CardCrucibleTests;
 			sourceTree = "<group>";
@@ -129,9 +185,30 @@
 			dependencies = (
 			);
 			name = CardCrucible;
+			packageProductDependencies = (
+				C971255A24C243B9000DCFC8 /* SwiftyJSON */,
+			);
 			productName = CardCrucible;
 			productReference = C96D2D0824305F2E00E10B01 /* CardCrucible.app */;
 			productType = "com.apple.product-type.application";
+		};
+		C9B9236924C3777C00D450A8 /* CardCrucibleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9B9237324C3777C00D450A8 /* Build configuration list for PBXNativeTarget "CardCrucibleUITests" */;
+			buildPhases = (
+				C9B9236624C3777C00D450A8 /* Sources */,
+				C9B9236724C3777C00D450A8 /* Frameworks */,
+				C9B9236824C3777C00D450A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C9B9237024C3777C00D450A8 /* PBXTargetDependency */,
+			);
+			name = CardCrucibleUITests;
+			productName = CardCrucibleUITests;
+			productReference = C9B9236A24C3777C00D450A8 /* CardCrucibleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		C9EFD94E24B7A70500709BC9 /* CardCrucibleTests */ = {
 			isa = PBXNativeTarget;
@@ -157,12 +234,16 @@
 		C96D2D0024305F2E00E10B01 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1150;
+				LastSwiftUpdateCheck = 1160;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Matthew Kressin";
 				TargetAttributes = {
 					C96D2D0724305F2E00E10B01 = {
 						CreatedOnToolsVersion = 11.3.1;
+					};
+					C9B9236924C3777C00D450A8 = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = C96D2D0724305F2E00E10B01;
 					};
 					C9EFD94E24B7A70500709BC9 = {
 						CreatedOnToolsVersion = 11.5;
@@ -179,12 +260,16 @@
 				Base,
 			);
 			mainGroup = C96D2CFF24305F2E00E10B01;
+			packageReferences = (
+				C971255924C243B9000DCFC8 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = C96D2D0924305F2E00E10B01 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				C96D2D0724305F2E00E10B01 /* CardCrucible */,
 				C9EFD94E24B7A70500709BC9 /* CardCrucibleTests */,
+				C9B9236924C3777C00D450A8 /* CardCrucibleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -195,8 +280,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				C96D2D1824305F3000E10B01 /* LaunchScreen.storyboard in Resources */,
+				C935EC0D24BE5AD100948554 /* cardData.json in Resources */,
 				C96D2D1524305F3000E10B01 /* Preview Assets.xcassets in Resources */,
 				C96D2D1224305F3000E10B01 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9B9236824C3777C00D450A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,8 +310,17 @@
 				C96D2D0C24305F2E00E10B01 /* AppDelegate.swift in Sources */,
 				C96D2D0E24305F2E00E10B01 /* SceneDelegate.swift in Sources */,
 				C9EFD95C24B8194400709BC9 /* Deck.swift in Sources */,
+				C935EC0A24BE572C00948554 /* CardImage.swift in Sources */,
 				C96D2D1024305F2E00E10B01 /* ContentView.swift in Sources */,
 				C9EFD94824B5392700709BC9 /* Card.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9B9236624C3777C00D450A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9B9236D24C3777C00D450A8 /* CardCrucibleUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,13 +328,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9EFD95224B7A70500709BC9 /* CardCrucibleTests.swift in Sources */,
+				C9B9237524C378B900D450A8 /* DeckTests.swift in Sources */,
+				C9EFD95224B7A70500709BC9 /* CardTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C9B9237024C3777C00D450A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C96D2D0724305F2E00E10B01 /* CardCrucible */;
+			targetProxy = C9B9236F24C3777C00D450A8 /* PBXContainerItemProxy */;
+		};
 		C9EFD95524B7A70500709BC9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C96D2D0724305F2E00E10B01 /* CardCrucible */;
@@ -404,6 +512,46 @@
 			};
 			name = Release;
 		};
+		C9B9237124C3777C00D450A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5PU8ZGWL33;
+				INFOPLIST_FILE = CardCrucibleUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.CardCrucibleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CardCrucible;
+			};
+			name = Debug;
+		};
+		C9B9237224C3777C00D450A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5PU8ZGWL33;
+				INFOPLIST_FILE = CardCrucibleUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.CardCrucibleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CardCrucible;
+			};
+			name = Release;
+		};
 		C9EFD95724B7A70500709BC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -465,6 +613,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		C9B9237324C3777C00D450A8 /* Build configuration list for PBXNativeTarget "CardCrucibleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9B9237124C3777C00D450A8 /* Debug */,
+				C9B9237224C3777C00D450A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C9EFD95624B7A70500709BC9 /* Build configuration list for PBXNativeTarget "CardCrucibleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -475,6 +632,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C971255924C243B9000DCFC8 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C971255A24C243B9000DCFC8 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C971255924C243B9000DCFC8 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C96D2D0024305F2E00E10B01 /* Project object */;
 }

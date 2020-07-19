@@ -10,7 +10,13 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            Text("Card Crucible")
+                .font(.title)
+                .bold()
+            CardImage(resizeRatio: 0.5, imageName: "KH")
+                
+        }
     }
 }
 

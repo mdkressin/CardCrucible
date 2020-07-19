@@ -1,5 +1,5 @@
 //
-//  CardCrucibleTests.swift
+//  CardTests.swift
 //  CardCrucibleTests
 //
 //  Created by Matthew Kressin on 7/9/20.
@@ -7,9 +7,10 @@
 //
 
 import XCTest
+import SwiftyJSON
 @testable import CardCrucible
 
-class CardCrucibleTests: XCTestCase {
+class CardTests: XCTestCase {
     private var ace: Card!
     private var eight: Card!
     private var nine: Card!
@@ -30,49 +31,66 @@ class CardCrucibleTests: XCTestCase {
         
         queen = Card(suitValue: .clubs, rankValue: .queen)
         king = Card(suitValue: .clubs, rankValue: .king)
+        
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    func testCardDataJSON() throws {
+        if let path = Bundle.main.path(forResource: "cardData", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+                let jsonObj = try JSON(data: data)
+                print("\(jsonObj[Card.Suit.diamonds.rawValue][Card.Rank.queen.rawValue].stringValue)")
+                print("jsonData:\(jsonObj)")
+            } catch let error {
+                XCTFail("parse error: \(error.localizedDescription)")
+            }
+        } else {
+            XCTFail("Invalid filename/path.")
+        }
+    }
     func testValues() throws {
         let three = Card(suitValue: .clubs, rankValue: .three)
-        XCTAssertTrue(three.cardValue == 3)
+        XCTAssertEqual(three.cardValue, 3)
 
-        XCTAssertTrue(ten.cardValue == 10)
-        XCTAssertTrue(jack.cardValue == 10)
-        XCTAssertTrue(ten.cardValue == jack.cardValue)
+        XCTAssertEqual(ten.cardValue, 10)
+        XCTAssertEqual(jack.cardValue, 10)
+        XCTAssertEqual(ten.cardValue, jack.cardValue)
         
         let twoH = Card(suitValue: .hearts, rankValue: .two)
         let twoS = Card(suitValue: .spades, rankValue: .two)
-        XCTAssertTrue(twoH.cardValue == 2)
-        XCTAssertTrue(twoS.cardValue == 2)
-        XCTAssertTrue(twoH.cardValue == twoS.cardValue)
+        XCTAssertEqual(twoH.cardValue, 2)
+        XCTAssertEqual(twoS.cardValue, 2)
+        XCTAssertEqual(twoH.cardValue, twoS.cardValue)
     }
-    func testLessThan() throws {
+    func testLessThanSlash() throws {
         // test all suits
         let twoC = Card(suitValue: .clubs, rankValue: .two)
         let twoD = Card(suitValue: .diamonds, rankValue: .two)
         let twoH = Card(suitValue: .hearts, rankValue: .two)
         let twoS = Card(suitValue: .spades, rankValue: .two)
-        XCTAssertTrue(ace < twoC)
-        XCTAssertTrue(ace < twoD)
-        XCTAssertTrue(ace < twoH)
-        XCTAssertTrue(ace < twoS)
+        XCTAssertTrue(ace </ twoC)
+        XCTAssertTrue(ace </ twoD)
+        XCTAssertTrue(ace </ twoH)
+        XCTAssertTrue(ace </ twoS)
         
-        XCTAssertFalse(twoS < twoC)
+        // test same ranks
+        XCTAssertFalse(twoS </ twoC)
+        XCTAssertFalse(ten </ ten)
+        XCTAssertFalse(king </ king)
         
-        XCTAssertTrue(eight < nine)
-        XCTAssertFalse(nine < eight)
+        XCTAssertTrue(eight </ nine)
+        XCTAssertFalse(nine </ eight)
         
-        XCTAssertTrue(ten < jack)
-        XCTAssertFalse(jack < ten)
+        XCTAssertTrue(ten </ jack)
+        XCTAssertFalse(jack </ ten)
         
-        XCTAssertTrue(ten < king)
-        XCTAssertTrue(queen < king)
-        XCTAssertFalse(king < jack)
-        XCTAssertFalse(king < queen)
-        
+        XCTAssertTrue(ten </ king)
+        XCTAssertTrue(queen </ king)
+        XCTAssertFalse(king </ jack)
+        XCTAssertFalse(king </ queen)
     }
 
     /*

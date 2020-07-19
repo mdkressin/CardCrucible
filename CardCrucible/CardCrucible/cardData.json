@@ -1,0 +1,62 @@
+{
+    "Clubs": {
+        "ace": "AC",
+        "two": "2C",
+        "three": "3C",
+        "four": "4C",
+        "five": "5C",
+        "six": "6C",
+        "seven": "7C",
+        "eight": "8C",
+        "nine": "9C",
+        "ten": "10C",
+        "jack": "JC",
+        "queen": "QC",
+        "king": "KC"
+    },
+    "Diamonds": {
+        "ace": "AD",
+        "two": "2D",
+        "three": "3D",
+        "four": "4D",
+        "five": "5D",
+        "six": "6D",
+        "seven": "7D",
+        "eight": "8D",
+        "nine": "9D",
+        "ten": "10D",
+        "jack": "JD",
+        "queen": "QD",
+        "king": "KD"
+    },
+    "Hearts": {
+        "ace": "AH",
+        "two": "2H",
+        "three": "3H",
+        "four": "4H",
+        "five": "5H",
+        "six": "6H",
+        "seven": "7H",
+        "eight": "8H",
+        "nine": "9H",
+        "ten": "10H",
+        "jack": "JH",
+        "queen": "QH",
+        "king": "KH"
+    },
+    "Spades": {
+        "ace": "AS",
+        "two": "2S",
+        "three": "3S",
+        "four": "4S",
+        "five": "5S",
+        "six": "6S",
+        "seven": "7S",
+        "eight": "8S",
+        "nine": "9S",
+        "ten": "10S",
+        "jack": "JS",
+        "queen": "QS",
+        "king": "KS"
+    }
+}
