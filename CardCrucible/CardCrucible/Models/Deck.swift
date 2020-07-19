@@ -115,12 +115,32 @@ struct Deck: Equatable {
      Draw the card from the top of the deck (0th index)
      */
     mutating func drawCard() throws -> Card {
-        throw DeckError.drawFromEmptyDeck
+        guard deckSize > 0 else {
+            #if DEBUG
+                debugPrint("inside drawCard but there aren't any cards left to draw")
+            #endif
+            throw DeckError.drawFromEmptyDeck
+        }
+        return decks.removeFirst()
     }
     
     // TODO: allow multiple cards to be drawn from the top of the deck (start at 0th index)
     mutating func drawCards(drawAmount: Int) throws -> [Card]  {
-        throw DeckError.insufficientCardsRemaining()
+        guard drawAmount > 0 else {
+            throw DeckError.negativeDrawAttempt
+        }
+        
+        var drawnCards: [Card] = []
+        guard drawAmount <= deckSize else {
+            drawnCards = decks
+            decks.removeAll()
+            throw DeckError.insufficientCardsRemaining(cardsDrawn: drawnCards, message: "attempted to draw \(drawAmount) cards but there were only \(drawnCards.count) cards in the deck")
+        }
+        
+        for _ in 0..<drawAmount {
+            try drawnCards.append(drawCard())
+        }
+        return drawnCards
     }
     
     // TODO: allow card to be drawn randomly from deck
@@ -145,4 +165,5 @@ struct Deck: Equatable {
 enum DeckError: Error {
     case drawFromEmptyDeck
     case insufficientCardsRemaining(cardsDrawn: [Card] = [], message: String = "")
+    case negativeDrawAttempt
 }

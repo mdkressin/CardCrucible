@@ -53,17 +53,17 @@ class CardTests: XCTestCase {
     }
     func testValues() throws {
         let three = Card(suitValue: .clubs, rankValue: .three)
-        XCTAssertTrue(three.cardValue == 3)
+        XCTAssertEqual(three.cardValue, 3)
 
-        XCTAssertTrue(ten.cardValue == 10)
-        XCTAssertTrue(jack.cardValue == 10)
-        XCTAssertTrue(ten.cardValue == jack.cardValue)
+        XCTAssertEqual(ten.cardValue, 10)
+        XCTAssertEqual(jack.cardValue, 10)
+        XCTAssertEqual(ten.cardValue, jack.cardValue)
         
         let twoH = Card(suitValue: .hearts, rankValue: .two)
         let twoS = Card(suitValue: .spades, rankValue: .two)
-        XCTAssertTrue(twoH.cardValue == 2)
-        XCTAssertTrue(twoS.cardValue == 2)
-        XCTAssertTrue(twoH.cardValue == twoS.cardValue)
+        XCTAssertEqual(twoH.cardValue, 2)
+        XCTAssertEqual(twoS.cardValue, 2)
+        XCTAssertEqual(twoH.cardValue, twoS.cardValue)
     }
     func testLessThanSlash() throws {
         // test all suits

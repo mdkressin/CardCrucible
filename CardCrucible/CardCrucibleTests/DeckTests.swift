@@ -331,6 +331,7 @@ class DeckTests: XCTestCase {
         
         // test draw amounts larger than amount of cards left in a deck
         do {
+            testDeck1 = Deck()
             // try drawing 1 more than the size of a single sub-deck
             try _ = testDeck1.drawCards(drawAmount: deckSize + 1)
         } catch DeckError.insufficientCardsRemaining(let cardsDrawn, let message) {
@@ -342,6 +343,7 @@ class DeckTests: XCTestCase {
             XCTFail("unexpected error trying to draw cards")
         }
         do {
+            testDeck1 = Deck()
             // try drawing way more than the size of a single sub-deck
             try _ = testDeck1.drawCards(drawAmount: deckSize * 3)
         } catch DeckError.insufficientCardsRemaining(let cardsDrawn, let message) {
@@ -353,6 +355,7 @@ class DeckTests: XCTestCase {
             XCTFail("unexpected error trying to draw cards")
         }
         do {
+            testDeck1 = Deck()
             // try drawing in increments (50 picked arbitrarily)
             try _ = testDeck1.drawCards(drawAmount: 50)
             try _ = testDeck1.drawCards(drawAmount: 50)
