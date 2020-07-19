@@ -10,6 +10,9 @@ import XCTest
 @testable import CardCrucible
 
 class DeckTests: XCTestCase {
+    private let expectedErrorStr = "no error was thrown when one"
+                                    + "was expected to be thrown"
+    
     /// The number of cards in a single deck or sub-deck
     private let deckSize = Deck.defaultDeckSize
     /// The max number of sub-decks allowed within a single deck
@@ -38,35 +41,35 @@ class DeckTests: XCTestCase {
         XCTAssertEqual(testDeck1.deck.count, deckSize)
         
         // use 2 decks
-        testDeck1 = Deck(numDecks: 2)
+        testDeck1 = Deck(numSubDecks: 2)
         XCTAssertEqual(testDeck1.deck.count, deckSize*2)
         
         // use 5 decks
-        testDeck1 = Deck(numDecks: 5)
+        testDeck1 = Deck(numSubDecks: 5)
         XCTAssertEqual(testDeck1.deck.count, deckSize*5)
         
         // use 10 decks (maximum amount of decks)
-        testDeck1 = Deck(numDecks: maxNumDecks)
+        testDeck1 = Deck(numSubDecks: maxNumDecks)
         XCTAssertEqual(testDeck1.deck.count, deckSize*maxNumDecks)
         
         // use 1 more than max amount of decks
-        testDeck1 = Deck(numDecks: maxNumDecks + 1)
+        testDeck1 = Deck(numSubDecks: maxNumDecks + 1)
         XCTAssertEqual(testDeck1.deck.count, deckSize*maxNumDecks)
         
         // use value that greatly exceeds maximum amount of decks
-        testDeck1 = Deck(numDecks: maxNumDecks*1000000)
+        testDeck1 = Deck(numSubDecks: maxNumDecks*1000000)
         XCTAssertEqual(testDeck1.deck.count, deckSize*maxNumDecks)
         
         // use 0 decks (minimum amount of decks)
-        testDeck1 = Deck(numDecks: minNumDecks)
+        testDeck1 = Deck(numSubDecks: minNumDecks)
         XCTAssertEqual(testDeck1.deck.count, minNumDecks)
         
         // use 1 less than min amount of decks
-        testDeck1 = Deck(numDecks: minNumDecks - 1)
+        testDeck1 = Deck(numSubDecks: minNumDecks - 1)
         XCTAssertEqual(testDeck1.deck.count, minNumDecks)
         
         // use value that is much less than minimum amount of decks
-        testDeck1 = Deck(numDecks: -1000000)
+        testDeck1 = Deck(numSubDecks: -1000000)
         XCTAssertEqual(testDeck1.deck.count, minNumDecks)
     }
     
@@ -84,7 +87,7 @@ class DeckTests: XCTestCase {
         XCTAssertEqual(newDeck.count, deckSize)
         
         // use 2 sub-decks
-        testDeck1 = Deck(numDecks: 2)
+        testDeck1 = Deck(numSubDecks: 2)
         newDeck = testDeck1.createDeck()
         // test that doesn't add to non-empty local decks variable
         XCTAssertEqual(testDeck1.deck.count, deckSize*2)
@@ -95,43 +98,43 @@ class DeckTests: XCTestCase {
         XCTAssertEqual(newDeck.count, deckSize*2)
         
         // use 5 decks
-        testDeck1 = Deck(numDecks: 5)
+        testDeck1 = Deck(numSubDecks: 5)
         newDeck = testDeck1.createDeck()
         XCTAssertEqual(testDeck1.deck.count, deckSize*5)
         XCTAssertEqual(newDeck.count, deckSize*5)
         
         // use 10 decks (maximum amount of decks)
-        testDeck1 = Deck(numDecks: maxNumDecks)
+        testDeck1 = Deck(numSubDecks: maxNumDecks)
         newDeck = testDeck1.createDeck()
         XCTAssertEqual(testDeck1.deck.count, deckSize*maxNumDecks)
         XCTAssertEqual(newDeck.count, deckSize*maxNumDecks)
         
         // use 1 more than max amount of decks
-        testDeck1 = Deck(numDecks: maxNumDecks + 1)
+        testDeck1 = Deck(numSubDecks: maxNumDecks + 1)
         newDeck = testDeck1.createDeck()
         XCTAssertEqual(testDeck1.deck.count, deckSize*maxNumDecks)
         XCTAssertEqual(newDeck.count, deckSize*maxNumDecks)
         
         // use value that greatly exceeds maximum amount of decks
-        testDeck1 = Deck(numDecks: maxNumDecks*1000000)
+        testDeck1 = Deck(numSubDecks: maxNumDecks*1000000)
         newDeck = testDeck1.createDeck()
         XCTAssertEqual(testDeck1.deck.count, deckSize*maxNumDecks)
         XCTAssertEqual(newDeck.count, deckSize*maxNumDecks)
         
         // use 0 decks (minimum amount of decks)
-        testDeck1 = Deck(numDecks: minNumDecks)
+        testDeck1 = Deck(numSubDecks: minNumDecks)
         newDeck = testDeck1.createDeck()
         XCTAssertEqual(testDeck1.deck.count, minNumDecks)
         XCTAssertEqual(newDeck.count, minNumDecks)
         
         // use 1 less than min amount of decks
-        testDeck1 = Deck(numDecks: minNumDecks - 1)
+        testDeck1 = Deck(numSubDecks: minNumDecks - 1)
         newDeck = testDeck1.createDeck()
         XCTAssertEqual(testDeck1.deck.count, minNumDecks)
         XCTAssertEqual(newDeck.count, minNumDecks)
         
         // use value that is much less than minimum amount of decks
-        testDeck1 = Deck(numDecks: -1000000)
+        testDeck1 = Deck(numSubDecks: -1000000)
         newDeck = testDeck1.createDeck()
         XCTAssertEqual(testDeck1.deck.count, minNumDecks)
         XCTAssertEqual(newDeck.count, minNumDecks)
@@ -161,74 +164,252 @@ class DeckTests: XCTestCase {
         XCTAssertFalse(manDeck =/ testDeck1.deck)
         XCTAssertTrue(testDeck1.deck =/ testDeck2.deck)
         
-        _ = testDeck1.drawCard()
-        XCTAssertFalse(testDeck1.deck =/ testDeck2.deck)
-        
-        _ = testDeck2.drawCard()
-        XCTAssertTrue(testDeck1.deck =/ testDeck2.deck)
-        
-        // draw all cards to test empty decks
-        for _ in testDeck1.deck {
-            _ = testDeck1.drawCard()
+        do {
+            try _ = testDeck1.drawCard()
+            XCTAssertFalse(testDeck1.deck =/ testDeck2.deck)
+            
+            try _ = testDeck2.drawCard()
+            XCTAssertTrue(testDeck1.deck =/ testDeck2.deck)
+            
+            // draw all cards to test empty decks
+            try _ = testDeck1.drawCards(drawAmount: testDeck1.deckSize)
+            XCTAssertFalse(testDeck1.deck =/ testDeck2.deck)
+            try _ = testDeck2.drawCards(drawAmount: testDeck2.deckSize)
+            XCTAssertTrue(testDeck1.deck =/ testDeck2.deck)
+            
+            // test decks that have different starting sizes
+            testDeck1 = Deck()
+            testDeck2 = Deck(numSubDecks: 2)
+            XCTAssertFalse(testDeck1.deck =/ testDeck2.deck)
+            
+            // draw from deck 2 until same size as deck 1
+            try _ = testDeck2.drawCards(drawAmount: testDeck1.deckSize)
+            XCTAssertTrue(testDeck1.deck =/ testDeck2.deck)
+            
+            // draw remaining cards
+            try _ = testDeck1.drawCards(drawAmount: deckSize)
+            try _ = testDeck2.drawCards(drawAmount: deckSize)
+            XCTAssertTrue(testDeck1.deck =/ testDeck2.deck)
+        } catch {
+            // should not reach here
+            XCTFail("unexpected error trying to draw cards")
         }
-        XCTAssertFalse(testDeck1.deck =/ testDeck2.deck)
-        for _ in testDeck2.deck {
-            _ = testDeck2.drawCard()
-        }
-        XCTAssertTrue(testDeck1.deck =/ testDeck2.deck)
-        
-        // test decks that have different starting sizes
-        testDeck1 = Deck()
-        testDeck2 = Deck(numDecks: 2)
-        XCTAssertFalse(testDeck1.deck =/ testDeck2.deck)
-        
-        // draw from deck 2 until same size as deck 1
-        for _ in 0..<testDeck1.deckSize {
-            _ = testDeck2.drawCard()
-        }
-        XCTAssertTrue(testDeck1.deck =/ testDeck2.deck)
-        
-        // draw remaining cards
-        for _ in 0..<deckSize {
-            _ = testDeck1.drawCard()
-            _ = testDeck2.drawCard()
-        }
-        XCTAssertTrue(testDeck1.deck =/ testDeck2.deck)
     }
     
     func testDrawCard() {
-        var firstCard = testDeck1.deck[0]
-        var drawnCard = testDeck1.drawCard()
-        XCTAssertEqual(firstCard, drawnCard)
-        XCTAssertEqual(testDeck1.deckSize, deckSize-1)
-        
-        testDeck1 = Deck()
-        firstCard = testDeck1.deck[0]
-        drawnCard = testDeck1.drawCard()
-        XCTAssertEqual(firstCard, drawnCard)
-        XCTAssertEqual(testDeck1.deckSize, deckSize-1)
-        
-        /*
-         The original first card was already removed from the deck
-         so the original second card is now the new first carde in
-         the deck
-         */
-        let secondCard = testDeck1.deck[0]
-        drawnCard = testDeck1.drawCard()
-        XCTAssertEqual(secondCard, drawnCard)
-        XCTAssertEqual(testDeck1.deckSize, deckSize-2)
-        XCTAssertNotEqual(firstCard, secondCard)
-        
-        
-        // continuously draw cards until all cards have been drawn
-        testDeck1 = Deck()
-        var drawnCards: [Card] = []
-        for _ in 0..<testDeck1.deckSize {
-            drawnCards.append(testDeck1.drawCard()!)
+        do {
+            var firstCard = testDeck1.deck[0]
+            var drawnCard = try testDeck1.drawCard()
+            XCTAssertEqual(firstCard, drawnCard)
+            XCTAssertEqual(testDeck1.deckSize, deckSize-1)
+            
+            testDeck1 = Deck()
+            firstCard = testDeck1.deck[0]
+            try drawnCard = testDeck1.drawCard()
+            XCTAssertEqual(firstCard, drawnCard)
+            XCTAssertEqual(testDeck1.deckSize, deckSize-1)
+            
+            /*
+             The original first card was already removed from the deck
+             so the original second card is now the new first carde in
+             the deck
+             */
+            let secondCard = testDeck1.deck[0]
+            try drawnCard = testDeck1.drawCard()
+            XCTAssertEqual(secondCard, drawnCard)
+            XCTAssertEqual(testDeck1.deckSize, deckSize-2)
+            XCTAssertNotEqual(firstCard, secondCard)
+            
+            
+            // continuously draw cards until all cards have been drawn
+            testDeck1 = Deck()
+            let drawnCards = try testDeck1.drawCards(drawAmount: testDeck1.deckSize)
+            XCTAssertEqual(testDeck1.deckSize, 0)
+            XCTAssertEqual(drawnCards.count, deckSize)
+        } catch {
+            // should not reach here
+            XCTFail("unintended error trying to drawCard")
         }
-        XCTAssertEqual(testDeck1.deckSize, 0)
-        XCTAssertEqual(drawnCards.count, deckSize)
+        
+        // test drawing a card from an empty deck
+        testDeck1 = Deck()
+        do {
+            // this should execute normally
+            try _ = testDeck1.drawCards(drawAmount: deckSize)
+            // this should throw an error
+            try _ = testDeck1.drawCard()
+            // sho8ld not reach here
+            XCTFail(expectedErrorStr)
+        } catch DeckError.drawFromEmptyDeck {
+            print("successfully caught expected error")
+        } catch {
+            XCTFail("did not catch the expected type of error")
+        }
     }
+    
+    func testDrawCards() {
+        // test drawing from decks with a single sub-deck
+        do {
+            // test that functions same as drawCard when given argument of 1
+            var draw1 = try testDeck1.drawCards(drawAmount: 1)
+            var draw2 = try [testDeck2.drawCard()]
+            XCTAssertEqual(draw1.count, 1)
+            XCTAssertEqual(draw1.count, draw2.count)
+            XCTAssertTrue(draw1 =/ draw2)
+            var afterDrawSize = deckSize - 1
+            XCTAssertEqual(testDeck1.deckSize, afterDrawSize)
+            XCTAssertEqual(testDeck1, testDeck2)
+            
+            // reset decks
+            testDeck1 = Deck()
+            testDeck2 = Deck()
+            
+            // test drawing multiple cards
+            try draw1 = testDeck1.drawCards(drawAmount: 3)
+            draw2 = []
+            try draw2.append(testDeck2.drawCard())
+            try draw2.append(testDeck2.drawCard())
+            try draw2.append(testDeck2.drawCard())
+            XCTAssertEqual(draw1.count, 3)
+            XCTAssertEqual(draw1.count, draw2.count)
+            XCTAssertTrue(draw1 =/ draw2)
+            afterDrawSize = deckSize - 3
+            XCTAssertEqual(testDeck1.deckSize, afterDrawSize)
+            XCTAssertEqual(testDeck1, testDeck2)
+            
+            // test drawing from a previously drawn from deck
+            try draw1 = testDeck1.drawCards(drawAmount: 5)
+            afterDrawSize -= 5
+            XCTAssertEqual(draw1.count, 5)
+            XCTAssertEqual(testDeck1.deckSize, afterDrawSize)
+            XCTAssertNotEqual(testDeck1, testDeck2)
+            try draw1 = testDeck1.drawCards(drawAmount: 20)
+            afterDrawSize -= 20
+            XCTAssertEqual(draw1.count, 20)
+            XCTAssertEqual(testDeck1.deckSize, afterDrawSize)
+            try draw1 = testDeck1.drawCards(drawAmount: 2)
+            afterDrawSize -= 2
+            XCTAssertEqual(draw1.count, 2)
+            XCTAssertEqual(testDeck1.deckSize, afterDrawSize)
+        } catch  {
+            // should not reach here
+            XCTFail("unexpected error trying to draw cards")
+        }
+        
+        // trying drawing from decks with more than one sub-deck
+        do {
+            var deck2Subs = Deck(numSubDecks: 2)
+            var afterDrawSize = deck2Subs.deckSize
+            var draw = try deck2Subs.drawCards(drawAmount: 5)
+            afterDrawSize -= 5
+            XCTAssertEqual(draw.count, 5)
+            XCTAssertEqual(deck2Subs.deckSize, afterDrawSize)
+            
+            // try draw amount larger than a single sub-deck's size
+            try draw = deck2Subs.drawCards(drawAmount: 55)
+            afterDrawSize -= 55
+            XCTAssertEqual(draw.count, 55)
+            XCTAssertEqual(deck2Subs.deckSize, afterDrawSize)
+            
+            // see if can still make smaller draws
+            try draw = deck2Subs.drawCards(drawAmount: 3)
+            afterDrawSize -= 3
+            XCTAssertEqual(draw.count, 3)
+            XCTAssertEqual(deck2Subs.deckSize, afterDrawSize)
+            try draw = deck2Subs.drawCards(drawAmount: 1)
+            afterDrawSize -= 1
+            XCTAssertEqual(draw.count, 1)
+            XCTAssertEqual(deck2Subs.deckSize, afterDrawSize)
+            try draw = deck2Subs.drawCards(drawAmount: 5)
+            afterDrawSize -= 5
+            XCTAssertEqual(draw.count, 5)
+            XCTAssertEqual(deck2Subs.deckSize, afterDrawSize)
+        } catch {
+            // should not reach here
+            XCTFail("unexpected error trying to draw cards")
+        }
+        
+        // test draw amounts larger than amount of cards left in a deck
+        do {
+            // try drawing 1 more than the size of a single sub-deck
+            try _ = testDeck1.drawCards(drawAmount: deckSize + 1)
+        } catch DeckError.insufficientCardsRemaining(let cardsDrawn, let message) {
+            XCTAssertEqual(cardsDrawn.count, deckSize)
+            XCTAssertEqual(testDeck1.deckSize, 0)
+            print(message)
+        } catch {
+            // should not reach here
+            XCTFail("unexpected error trying to draw cards")
+        }
+        do {
+            // try drawing way more than the size of a single sub-deck
+            try _ = testDeck1.drawCards(drawAmount: deckSize * 3)
+        } catch DeckError.insufficientCardsRemaining(let cardsDrawn, let message) {
+            XCTAssertEqual(cardsDrawn.count, deckSize)
+            XCTAssertEqual(testDeck1.deckSize, 0)
+            print(message)
+        } catch {
+            // should not reach here
+            XCTFail("unexpected error trying to draw cards")
+        }
+        do {
+            // try drawing in increments (50 picked arbitrarily)
+            try _ = testDeck1.drawCards(drawAmount: 50)
+            try _ = testDeck1.drawCards(drawAmount: 50)
+        } catch DeckError.insufficientCardsRemaining(let cardsDrawn, let message) {
+            XCTAssertEqual(cardsDrawn.count, deckSize-50)
+            XCTAssertEqual(testDeck1.deckSize, 0)
+            print(message)
+        } catch {
+            // should not reach here
+            XCTFail("unexpected error trying to draw cards")
+        }
+    }
+    
+    func testRandomDraw() {
+        do {
+            let draw1 = try testDeck1.drawRandomCard()
+            let draw2 = try testDeck2.drawRandomCard()
+            XCTAssertFalse(draw1 =/ draw2)
+            XCTAssertEqual(testDeck1.deckSize, deckSize - 1)
+            XCTAssertEqual(testDeck1.deckSize, testDeck2.deckSize)
+            
+            let newDraw1 = try testDeck1.drawRandomCard()
+            let newDraw2 = try testDeck2.drawRandomCard()
+            XCTAssertFalse(newDraw1 =/ newDraw2)
+            XCTAssertFalse(draw1 =/ newDraw1)
+            XCTAssertFalse(draw2 =/ newDraw2)
+            XCTAssertEqual(testDeck1.deckSize, deckSize - 2)
+            XCTAssertEqual(testDeck1.deckSize, testDeck2.deckSize)
+        } catch {
+            // should not reach here
+            XCTFail("unexpected error trying to draw random card")
+        }
+        
+        // test for when deck has single card left
+        do {
+            testDeck1 = Deck()
+            try _ = testDeck1.drawCards(drawAmount: testDeck1.deckSize-1)
+            try _ = testDeck1.drawRandomCard()
+            
+            XCTAssertEqual(testDeck1.deckSize, 0)
+        } catch {
+            // should not reach here
+            XCTFail("unexpected error trying to draw random card")
+        }
+        
+        // test for when deck is empty
+        do {
+            try _ = testDeck1.drawRandomCard()
+            XCTFail(expectedErrorStr)
+        } catch DeckError.drawFromEmptyDeck {
+            print("successfully caught expected error")
+        } catch {
+            // should not reach here
+            XCTFail("unexpected error trying to draw random card")
+        }
+    }
+
     /**
      Manually creates a deck of 52 cards containing all Card suits and all Card ranks per suit
      

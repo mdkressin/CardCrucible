@@ -62,15 +62,15 @@ struct Deck: Equatable {
         get { decks.count }
     }
     /// The number of sub-decks this instance is using.
-    @AllowedNumSubDecks private var numDecks: Int
+    @AllowedNumSubDecks private var numSubDecks: Int
     
     /**
      Initializes a new deck that has a specified number of sub-decks within it.
      
-     - Parameter numDecks: The number of subdecks within the main deck. Each sub-deck is itself a full deck containing 52 cards.
+     - Parameter numSubDecks: The number of subdecks within the main deck. Each sub-deck is itself a full deck containing 52 cards.
      */
-    init(numDecks: Int = 1) {
-        self.numDecks = numDecks
+    init(numSubDecks: Int = 1) {
+        self.numSubDecks = numSubDecks
         createDeck()
     }
     
@@ -87,7 +87,7 @@ struct Deck: Equatable {
         decks.removeAll()
         
         // loop to create sub-decks
-        for _ in 0..<numDecks {
+        for _ in 0..<numSubDecks {
             for suit in Card.Suit.allCases {
                 for rank in Card.Rank.allCases {
                     decks.append(Card(suitValue: suit, rankValue: rank))
@@ -98,38 +98,51 @@ struct Deck: Equatable {
         return deck
     }
     
+    // TODO: create a fresh deck that has already been shuffled
+    @discardableResult
+    mutating func createShuffledDeck() -> [Card] {
+        return []
+    }
+    
+    // TODO: shuffle the cards in the deck
+    @discardableResult
+    mutating func shuffle() -> [Card] {
+        return []
+    }
+    
     // TODO: allow card to be drawn from deck
     /**
      Draw the card from the top of the deck (0th index)
-     
-     - Precondition: There must be at least one card in the deck to be able to draw a card from it
      */
-    func drawCard() -> Card? {
-        precondition(deckSize > 0)
-        return nil
+    mutating func drawCard() throws -> Card {
+        throw DeckError.drawFromEmptyDeck
     }
-    // TODO: allow multiple cards to be drawn
-    func drawCards(drawAmount: Int) -> [Card]? {
-        return nil
+    
+    // TODO: allow multiple cards to be drawn from the top of the deck (start at 0th index)
+    mutating func drawCards(drawAmount: Int) throws -> [Card]  {
+        throw DeckError.insufficientCardsRemaining()
     }
+    
     // TODO: allow card to be drawn randomly from deck
-    func drawRandomCard() -> Card? {
-        return nil
+    mutating func drawRandomCard() throws -> [Card] {
+        throw DeckError.drawFromEmptyDeck
     }
+    
     // TODO: allow multiple cards to be drawn randomly from deck
-    func drawRandomCards(drawAmount: Int) -> [Card]? {
-        return nil
-    }
-    // TODO: shuffle the cards in the deck
-    func shuffle() {
-        
+    mutating func drawRandomCards(drawAmount: Int) throws -> [Card] {
+        throw DeckError.insufficientCardsRemaining()
     }
     
     static func ==(left: Deck, right: Deck) -> Bool {
-        guard left.numDecks == right.numDecks else {
+        guard left.numSubDecks == right.numSubDecks else {
             return false
         }
 
         return left.decks =/ right.decks
     }
+}
+
+enum DeckError: Error {
+    case drawFromEmptyDeck
+    case insufficientCardsRemaining(cardsDrawn: [Card] = [], message: String = "")
 }
