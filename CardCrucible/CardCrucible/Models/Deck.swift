@@ -110,9 +110,14 @@ struct Deck: Equatable {
         return []
     }
     
-    // TODO: allow card to be drawn from deck
     /**
-     Draw the card from the top of the deck (0th index)
+     Draw the card from the top of the main deck (0th index)
+     
+     - Throws: 'DeckError.drawFromEmptyDeck'
+                if there are no more cards in the main deck to draw
+                (deckSize is 0)
+     
+     - Returns: The top card (0th index) of the main deck
      */
     mutating func drawCard() throws -> Card {
         guard deckSize > 0 else {
@@ -123,8 +128,19 @@ struct Deck: Equatable {
         }
         return decks.removeFirst()
     }
-    
-    // TODO: allow multiple cards to be drawn from the top of the deck (start at 0th index)
+
+    /**
+     Allow multiple cards to be drawn from the top of the deck (starting at the 0th index)
+     
+     - Parameter drawAmount: The number of cards to draw from the deck
+     
+     - Throws:
+        - 'DeckError.negativeDrawAttempt' if the draw amount is less than 0
+        - 'DeckError.insufficientCardsRemaining' if the draw amount is greater than the
+            amount of cards in  the deck
+     
+     - Returns: An array of the cards that were drawn from the main deck.
+     */
     mutating func drawCards(drawAmount: Int) throws -> [Card]  {
         guard drawAmount > 0 else {
             throw DeckError.negativeDrawAttempt
@@ -132,6 +148,7 @@ struct Deck: Equatable {
         
         var drawnCards: [Card] = []
         guard drawAmount <= deckSize else {
+            // draw the remaining cards from the main deck
             drawnCards = decks
             decks.removeAll()
             throw DeckError.insufficientCardsRemaining(cardsDrawn: drawnCards, message: "attempted to draw \(drawAmount) cards but there were only \(drawnCards.count) cards in the deck")
@@ -143,27 +160,77 @@ struct Deck: Equatable {
         return drawnCards
     }
     
-    // TODO: allow card to be drawn randomly from deck
-    mutating func drawRandomCard() throws -> [Card] {
-        throw DeckError.drawFromEmptyDeck
+    /**
+     Allow card to be drawn randomly from deck.
+     
+     - Throws: 'DeckError.drawFromEmptyDeck'
+                 if there are no more cards in the main deck to draw
+                 (deckSize is 0)
+     
+     - Returns: The random card that was removed from the main deck
+     */
+    mutating func drawRandomCard() throws -> Card {
+        guard deckSize > 0 else {
+            throw DeckError.drawFromEmptyDeck
+        }
+        return decks.remove(at: decks.firstIndex(of: decks.randomElement()!)!)
     }
     
     // TODO: allow multiple cards to be drawn randomly from deck
+    /**
+     Allow multiple cards to be drawn from the top of the deck (starting at the 0th index)
+     
+     - Parameter drawAmount: The number of cards to draw from the deck
+     
+     - Throws:
+     - 'DeckError.negativeDrawAttempt' if the draw amount is less than 0
+     - 'DeckError.insufficientCardsRemaining' if the draw amount is greater than the
+     amount of cards in  the deck
+     
+     - Returns: An array of the cards that were randomly drawn from the main deck.
+     */
     mutating func drawRandomCards(drawAmount: Int) throws -> [Card] {
-        throw DeckError.insufficientCardsRemaining()
+        guard drawAmount > 0 else {
+            throw DeckError.negativeDrawAttempt
+        }
+        
+        var drawnCards: [Card] = []
+        guard drawAmount <= deckSize else {
+            // randomly draw the remaining cards from the main deck
+            for _ in 0..<deckSize {
+                try drawnCards.append(drawRandomCard())
+            }
+            throw DeckError.insufficientCardsRemaining(cardsDrawn: drawnCards, message: "attempted to draw \(drawAmount) cards but there were only \(drawnCards.count) cards in the deck")
+        }
+        
+        for _ in 0..<drawAmount {
+            try drawnCards.append(drawRandomCard())
+        }
+        return drawnCards
     }
     
     static func ==(left: Deck, right: Deck) -> Bool {
+        // both decks should have the same number of sub-decks
         guard left.numSubDecks == right.numSubDecks else {
             return false
         }
-
+        // check if the card arrays are equal
         return left.decks =/ right.decks
     }
 }
 
+/// Possible errors that can arise from using the Deck struct
 enum DeckError: Error {
+    /// There are 0 cards inside the deck being drawn from.
     case drawFromEmptyDeck
+    /**
+     The draw amount is greater than the amount of cards in the deck.
+     
+     - Associated Values:
+        - cardsDrawn: The cards that were successfully drawn before the deck ran out of cards
+        - message: The reason for the thrown error
+     */
     case insufficientCardsRemaining(cardsDrawn: [Card] = [], message: String = "")
+    /// Tried to draw a negative amount of cards from a deck
     case negativeDrawAttempt
 }

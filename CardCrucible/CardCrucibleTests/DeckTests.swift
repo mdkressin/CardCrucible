@@ -373,15 +373,23 @@ class DeckTests: XCTestCase {
         do {
             let draw1 = try testDeck1.drawRandomCard()
             let draw2 = try testDeck2.drawRandomCard()
-            XCTAssertFalse(draw1 =/ draw2)
+            
+            /*
+             There is a 1/2704 chance that the below assertion
+             will fail due to the same card being drawn from both
+             52 card decks
+             
+             XCTAssertNotEqual(draw1, draw2)
+             
+             */
+            
             XCTAssertEqual(testDeck1.deckSize, deckSize - 1)
             XCTAssertEqual(testDeck1.deckSize, testDeck2.deckSize)
             
             let newDraw1 = try testDeck1.drawRandomCard()
             let newDraw2 = try testDeck2.drawRandomCard()
-            XCTAssertFalse(newDraw1 =/ newDraw2)
-            XCTAssertFalse(draw1 =/ newDraw1)
-            XCTAssertFalse(draw2 =/ newDraw2)
+            XCTAssertNotEqual(draw1, newDraw1)
+            XCTAssertNotEqual(draw2, newDraw2)
             XCTAssertEqual(testDeck1.deckSize, deckSize - 2)
             XCTAssertEqual(testDeck1.deckSize, testDeck2.deckSize)
         } catch {
