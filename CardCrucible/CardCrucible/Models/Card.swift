@@ -11,7 +11,7 @@ import SwiftUI
 import SwiftyJSON
 
 /// An object used in multiple games, consisting of a Card suit and a Card rank
-struct Card: Equatable {
+struct Card: Equatable, Comparable {
     /// The Suit of the card
     enum Suit: String, CaseIterable {
         case clubs = "Clubs", diamonds = "Diamonds", hearts = "Hearts",
@@ -19,44 +19,10 @@ struct Card: Equatable {
     }
     
     /// The Rank of the card
-    enum Rank: String, CaseIterable {
-        case ace
-        case two, three, four, five, six, seven, eight, nine, ten
+    enum Rank: Int, CaseIterable {
+        case two = 2, three, four, five, six, seven, eight, nine, ten
         case jack, queen, king
-        
-        /**
-         Returns the default, numeric value associated with the passed in rank
-         
-         - Parameter rank: The Card rank to get the numeric value of.
-         
-         - Returns: The default, numeric value of the passed in rank
-         */
-        static func defaultValue(rank: Rank) -> Int {
-            switch rank {
-            case .ace:
-                return 1
-            case .two:
-                return 2
-            case .three:
-                return 3
-            case .four:
-                return 4
-            case .five:
-                return 5
-            case .six:
-                return 6
-            case .seven:
-                return 7
-            case .eight:
-                return 8
-            case .nine:
-                return 9
-            case .ten:
-                return 10
-            case .jack, .queen, .king:
-                return 10
-            }
-        }
+        case ace
         
         /**
          Get the equivalent rank of the passed in string
@@ -67,33 +33,33 @@ struct Card: Equatable {
                     valid, otherwise nil
          */
         static func fromString(stringRank: String) -> Rank? {
-            switch stringRank {
-            case "ace":
-                return Rank.ace
-            case "two":
-                return Rank.two
-            case "three":
-                return Rank.three
-            case "four":
-                return Rank.four
-            case "five":
-                return Rank.five
-            case "six":
-                return Rank.six
-            case "seven":
-                return Rank.seven
-            case "eight":
-                return Rank.eight
-            case "nine":
-                return Rank.nine
-            case "ten":
-                return Rank.ten
-            case "jack":
-                return Rank.jack
-            case "queen":
-                return Rank.queen
-            case "king":
-                return Rank.king
+            switch stringRank.lowercased() {
+            case "two", "2":
+                return .two
+            case "three", "3":
+                return .three
+            case "four", "4":
+                return .four
+            case "five", "5":
+                return .five
+            case "six", "6":
+                return .six
+            case "seven", "7":
+                return .seven
+            case "eight", "8":
+                return .eight
+            case "nine", "9":
+                return .nine
+            case "ten", "10":
+                return .ten
+            case "jack", "j":
+                return .jack
+            case "queen", "q":
+                return .queen
+            case "king", "k":
+                return .king
+            case "ace", "a":
+                return .ace
             default:
                 return nil
             }
@@ -127,7 +93,7 @@ struct Card: Equatable {
     init(suitValue: Suit, rankValue: Rank) {
         self.suit = suitValue
         self.rank = rankValue
-        self.cardValue = Rank.defaultValue(rank: rankValue)
+        self.cardValue = self.rank.rawValue
         self.imageName = Card.getImageName(suit: suitValue, rank: rankValue)
     }
     
@@ -179,7 +145,10 @@ struct Card: Equatable {
     }
     
     static func ==(left: Card, right: Card) -> Bool {
-        return left.suit == right.suit && left.rank == right.rank
+        left.suit == right.suit && left.rank == right.rank
+    }
+    static func < (left: Card, right: Card) -> Bool {
+        left.cardValue < right.cardValue
     }
 }
 
@@ -199,46 +168,4 @@ func =/(left: [Card], right: [Card]) -> Bool {
         }
     }
     return true
-}
-
-infix operator </ : AssignmentPrecedence
-/// Allows cards to be compared against each other based on their Card Rank
-///
-///Ace \< two \< three \< ... \< ten \< jack \< queen \< king
-///
-/// - Parameters:
-///   - left: The Card on the left of the less-than sign
-///   - right: The Card on the right of the less-than sign
-///
-/// - Returns: True if the Card on the left is less-than the Card on the right, otherwise false
-func </ (left: Card, right: Card) -> Bool {
-    // only need to address special case for face cards
-    if (left.cardValue != 10 || right.cardValue != 10) {
-        return left.cardValue < right.cardValue
-    }
-        // check if cards have the same rank
-    else if (left.rank == right.rank) {
-        return false
-    }
-        // check if left card is a ten and right is a face card
-    else if (left.rank == Card.Rank.ten) {
-        return true
-    }
-        // check if right card is a ten a left is a face card
-    else if (right.rank == Card.Rank.ten) {
-        return false
-    }
-        // check if left card is a jack (smallest valued face card)
-    else if (left.rank == Card.Rank.jack) {
-        return (right.rank != Card.Rank.ten)
-    }
-        // check if left card is a king (largest valued face card)
-    else if (left.rank == Card.Rank.king) {
-        return false
-    }
-        // left card is a queen and right card is either a jack or king, so we
-        // can switch the ordering and return the opposite result
-    else {
-        return !(right </ left)
-    }
 }
