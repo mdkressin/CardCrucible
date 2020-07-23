@@ -420,6 +420,22 @@ class DeckTests: XCTestCase {
             XCTFail("unexpected error trying to draw random card")
         }
     }
+    
+    func testShuffle() {
+        let manDeckOrig = manuallyCreateDeck()
+        
+        // test class shuffle
+        let manDeckShuffle = Deck.shuffle(deck: manDeckOrig)
+        XCTAssertNotEqual(manDeckOrig, manDeckShuffle)
+        let shuffledDeck = Deck.shuffle(deck: testDeck1.deck)
+        XCTAssertNotEqual(shuffledDeck, testDeck1.deck)
+        
+        // test instance shuffle
+        XCTAssertEqual(testDeck1, testDeck2)
+        testDeck2.shuffle()
+        XCTAssertNotEqual(testDeck2, testDeck1)
+        
+    }
 
     /**
      Manually creates a deck of 52 cards containing all Card suits and all Card ranks per suit

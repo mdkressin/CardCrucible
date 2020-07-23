@@ -145,7 +145,7 @@ struct Card: Equatable, Comparable {
     }
     
     static func ==(left: Card, right: Card) -> Bool {
-        left.suit == right.suit && left.rank == right.rank
+        left.suit == right.suit && left.rank == right.rank && left.cardValue == right.cardValue
     }
     static func < (left: Card, right: Card) -> Bool {
         left.cardValue < right.cardValue

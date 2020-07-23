@@ -55,7 +55,7 @@ struct Deck: Equatable {
     private var decks: [Card] = []
     /// Getter for the main deck.
     var deck: [Card] {
-        get { return decks }
+        get { decks }
     }
     /// Getter for the amount of cards in the main deck
     var deckSize: Int {
@@ -105,9 +105,43 @@ struct Deck: Equatable {
     }
     
     // TODO: shuffle the cards in the deck
+    /**
+     Shuffle the main deck of cards by changing the ordering of the card array.
+     
+     The ordering of the main deck is guaranteed to change so long as it is not an empty deck.
+     
+     - Returns: The shuffled main deck
+     */
     @discardableResult
     mutating func shuffle() -> [Card] {
-        return []
+        guard deckSize > 0 else {
+            return []
+        }
+        // ensure that the ordering of the main deck is changed
+        let tempDeck = decks
+        while tempDeck == decks {
+            decks.shuffle()
+        }
+        return deck
+    }
+    /**
+     Shuffle a deck of cards by changing the ordering of the card array.
+     
+     The ordering of the deck is guaranteed to change so long as it is not an empty deck.
+     
+     - Parameter deck: The array of cards to shuffle the ordering of
+     - Returns: The shuffled deck of cards
+     */
+    static func shuffle(deck: [Card]) -> [Card] {
+        guard deck.count > 0 else {
+            return []
+        }
+        // ensure that the ordering of the deck is changed
+        var shuffledDeck = deck
+        while shuffledDeck == deck {
+            shuffledDeck.shuffle()
+        }
+        return shuffledDeck
     }
     
     /**
@@ -121,9 +155,6 @@ struct Deck: Equatable {
      */
     mutating func drawCard() throws -> Card {
         guard deckSize > 0 else {
-            #if DEBUG
-                debugPrint("inside drawCard but there aren't any cards left to draw")
-            #endif
             throw DeckError.drawFromEmptyDeck
         }
         return decks.removeFirst()
@@ -163,6 +194,8 @@ struct Deck: Equatable {
     /**
      Allow card to be drawn randomly from deck.
      
+     Uses Array.randomElement function to apply randomness
+     
      - Throws: 'DeckError.drawFromEmptyDeck'
                  if there are no more cards in the main deck to draw
                  (deckSize is 0)
@@ -176,7 +209,6 @@ struct Deck: Equatable {
         return decks.remove(at: decks.firstIndex(of: decks.randomElement()!)!)
     }
     
-    // TODO: allow multiple cards to be drawn randomly from deck
     /**
      Allow multiple cards to be drawn from the top of the deck (starting at the 0th index)
      
