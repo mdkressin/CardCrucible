@@ -77,7 +77,7 @@ class DeckTests: XCTestCase {
         var newDeck: [Card]
         
         // default value of 1 is used
-        newDeck = testDeck1.createDeck()
+        newDeck = testDeck1.createDeck(numSubDecks: 1)
         // test that doesn't add to non-empty local decks variable
         XCTAssertEqual(testDeck1.deck.count, deckSize)
         /*
@@ -88,7 +88,7 @@ class DeckTests: XCTestCase {
         
         // use 2 sub-decks
         testDeck1 = Deck(numSubDecks: 2)
-        newDeck = testDeck1.createDeck()
+        newDeck = testDeck1.createDeck(numSubDecks: 2)
         // test that doesn't add to non-empty local decks variable
         XCTAssertEqual(testDeck1.deck.count, deckSize*2)
         /*
@@ -99,43 +99,43 @@ class DeckTests: XCTestCase {
         
         // use 5 decks
         testDeck1 = Deck(numSubDecks: 5)
-        newDeck = testDeck1.createDeck()
+        newDeck = testDeck1.createDeck(numSubDecks: 5)
         XCTAssertEqual(testDeck1.deck.count, deckSize*5)
         XCTAssertEqual(newDeck.count, deckSize*5)
         
         // use 10 decks (maximum amount of decks)
         testDeck1 = Deck(numSubDecks: maxNumDecks)
-        newDeck = testDeck1.createDeck()
+        newDeck = testDeck1.createDeck(numSubDecks: maxNumDecks)
         XCTAssertEqual(testDeck1.deck.count, deckSize*maxNumDecks)
         XCTAssertEqual(newDeck.count, deckSize*maxNumDecks)
         
         // use 1 more than max amount of decks
         testDeck1 = Deck(numSubDecks: maxNumDecks + 1)
-        newDeck = testDeck1.createDeck()
+        newDeck = testDeck1.createDeck(numSubDecks: maxNumDecks + 1)
         XCTAssertEqual(testDeck1.deck.count, deckSize*maxNumDecks)
         XCTAssertEqual(newDeck.count, deckSize*maxNumDecks)
         
         // use value that greatly exceeds maximum amount of decks
-        testDeck1 = Deck(numSubDecks: maxNumDecks*1000000)
-        newDeck = testDeck1.createDeck()
+        testDeck1 = Deck(numSubDecks: maxNumDecks*1_000_000)
+        newDeck = testDeck1.createDeck(numSubDecks: maxNumDecks*1_000_000)
         XCTAssertEqual(testDeck1.deck.count, deckSize*maxNumDecks)
         XCTAssertEqual(newDeck.count, deckSize*maxNumDecks)
         
         // use 0 decks (minimum amount of decks)
         testDeck1 = Deck(numSubDecks: minNumDecks)
-        newDeck = testDeck1.createDeck()
+        newDeck = testDeck1.createDeck(numSubDecks: minNumDecks)
         XCTAssertEqual(testDeck1.deck.count, minNumDecks)
         XCTAssertEqual(newDeck.count, minNumDecks)
         
         // use 1 less than min amount of decks
         testDeck1 = Deck(numSubDecks: minNumDecks - 1)
-        newDeck = testDeck1.createDeck()
+        newDeck = testDeck1.createDeck(numSubDecks: minNumDecks - 1)
         XCTAssertEqual(testDeck1.deck.count, minNumDecks)
         XCTAssertEqual(newDeck.count, minNumDecks)
         
         // use value that is much less than minimum amount of decks
-        testDeck1 = Deck(numSubDecks: -1000000)
-        newDeck = testDeck1.createDeck()
+        testDeck1 = Deck(numSubDecks: -1_000_000)
+        newDeck = testDeck1.createDeck(numSubDecks: -1_000_000)
         XCTAssertEqual(testDeck1.deck.count, minNumDecks)
         XCTAssertEqual(newDeck.count, minNumDecks)
     }

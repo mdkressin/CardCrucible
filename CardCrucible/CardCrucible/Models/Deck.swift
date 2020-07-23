@@ -71,23 +71,26 @@ struct Deck: Equatable {
      */
     init(numSubDecks: Int = 1) {
         self.numSubDecks = numSubDecks
-        createDeck()
+        createDeck(numSubDecks: self.numSubDecks)
     }
     
     /**
-     Creates the cards and adds them to the overall deck according to the amount of decks
-     specified during initialization of the instance.
+     Creates the cards for the main deck according to the specified number of sub-decks.
      
-     - Returns: The deck that was created that contains the amount of sub-decks
-     specified during initialization
+     This function creates a new main deck for this Deck instance
+     
+     - Parameter numSubDecks: The number of sub-decks you want the created deck to contain (a sub-deck consists of 52 cards). The range for the amount of sub-decks is 0-10 inclusive.
+     - Returns: The deck containing the specified amount of sub-decks that was created
      */
     @discardableResult
-    mutating func createDeck() -> [Card] {
+    mutating func createDeck(numSubDecks: Int) -> [Card] {
         // erase current decks if they exist
         decks.removeAll()
+        // change the number of sub-decks
+        self.numSubDecks = numSubDecks
         
         // loop to create sub-decks
-        for _ in 0..<numSubDecks {
+        for _ in 0 ..< self.numSubDecks {
             for suit in Card.Suit.allCases {
                 for rank in Card.Rank.allCases {
                     decks.append(Card(suitValue: suit, rankValue: rank))
@@ -97,18 +100,83 @@ struct Deck: Equatable {
         }
         return deck
     }
-    
-    // TODO: create a fresh deck that has already been shuffled
+    /**
+     Creates the cards for a main deck according to the specified number of sub-decks.
+     
+     - Parameter numSubDecks: The number of sub-decks you want the created deck to contain (a sub-deck consists of 52 cards). The range for the amount of sub-decks is 0-10 inclusive.
+     - Returns: The deck containing the specified amount of sub-decks that was created
+     */
     @discardableResult
-    mutating func createShuffledDeck() -> [Card] {
-        return []
+    static func createDeck(numSubDecks: Int) -> [Card] {
+        // as of 07/23/20: 'Property wrappers are not yet supported on local properties'
+        // enforce sub-deck amount limits
+        var subDecks = min(numSubDecks, AllowedNumSubDecks.maxNumSubDecks)
+        subDecks = max(numSubDecks, AllowedNumSubDecks.minNumSubDecks)
+        
+        // the deck being created
+        var deck = [Card]()
+        
+        // set the size of the array
+        deck.reserveCapacity(subDecks * Deck.defaultDeckSize)
+        
+        // loop to create sub-decks
+        for _ in 0 ..< subDecks {
+            for suit in Card.Suit.allCases {
+                for rank in Card.Rank.allCases {
+                    deck.append(Card(suitValue: suit, rankValue: rank))
+                }
+            }
+            
+        }
+        return deck
     }
     
-    // TODO: shuffle the cards in the deck
+    /**
+     Create a fresh, shuffled deck that contains the specified amount of sub-decks.
+     
+     The created and shuffled deck becomes the new main deck for this instance.
+     
+     - Note: Calling this function is equivalent to:
+        ~~~
+        var newDeck = Deck(numSubDecks: someNumber0to10)
+        var shuffledDeck = newDeck.shuffle()
+        ~~~
+     or
+        ~~~
+        var newDeck = Deck().createDeck(numSubDecks: someNumber0to10)
+        var shuffledDeck = newDeck.shuffle()
+        ~~~
+     
+     - Parameter numSubDecks: The number of sub-decks you want the created deck to contain (a sub-deck consists of 52 cards). The range for the amount of sub-decks is 0-10 inclusive.
+     - Returns: The new deck after it has been shuffled.
+     */
+    @discardableResult
+    mutating func createShuffledDeck(numSubDecks: Int) -> [Card] {
+        createDeck(numSubDecks: numSubDecks)
+        return shuffle()
+    }
+    
+    /**
+     Create a fresh, shuffled deck that contains the specified amount of sub-decks.
+     
+     - Note: Calling this function is equivalent to:
+     
+        ~~~
+        var newDeck = Deck.createDeck(numSubDecks: someNumber0to10)
+        var shuffledDeck = Deck.shuffle(deck: newDeck)
+        ~~~
+     
+     - Parameter numSubDecks: The number of sub-decks you want the created deck to contain (a sub-deck consists of 52 cards). The range for the amount of sub-decks is 0-10 inclusive.
+     - Returns: The new deck after it has been shuffled.
+     */
+    @discardableResult
+    static func createShuffledDeck(numSubDecks: Int) -> [Card] {
+        Deck.shuffle(deck: Deck.createDeck(numSubDecks: numSubDecks))
+    }
     /**
      Shuffle the main deck of cards by changing the ordering of the card array.
      
-     The ordering of the main deck is guaranteed to change so long as it is not an empty deck.
+     The main deck itself is mutated and a copy of the result is returnded by the function. The ordering of the main deck is guaranteed to change so long as it is not an empty deck.
      
      - Returns: The shuffled main deck
      */
@@ -132,6 +200,7 @@ struct Deck: Equatable {
      - Parameter deck: The array of cards to shuffle the ordering of
      - Returns: The shuffled deck of cards
      */
+    @discardableResult
     static func shuffle(deck: [Card]) -> [Card] {
         guard deck.count > 0 else {
             return []
@@ -185,7 +254,7 @@ struct Deck: Equatable {
             throw DeckError.insufficientCardsRemaining(cardsDrawn: drawnCards, message: "attempted to draw \(drawAmount) cards but there were only \(drawnCards.count) cards in the deck")
         }
         
-        for _ in 0..<drawAmount {
+        for _ in 0 ..< drawAmount {
             try drawnCards.append(drawCard())
         }
         return drawnCards
@@ -229,7 +298,7 @@ struct Deck: Equatable {
         var drawnCards: [Card] = []
         guard drawAmount <= deckSize else {
             // randomly draw the remaining cards from the main deck
-            for _ in 0..<deckSize {
+            for _ in 0 ..< deckSize {
                 try drawnCards.append(drawRandomCard())
             }
             throw DeckError.insufficientCardsRemaining(cardsDrawn: drawnCards, message: "attempted to draw \(drawAmount) cards but there were only \(drawnCards.count) cards in the deck")
