@@ -18,6 +18,7 @@
 		C971255B24C243B9000DCFC8 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = C971255A24C243B9000DCFC8 /* SwiftyJSON */; };
 		C9B9236D24C3777C00D450A8 /* CardCrucibleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B9236C24C3777C00D450A8 /* CardCrucibleUITests.swift */; };
 		C9B9237524C378B900D450A8 /* DeckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B9237424C378B900D450A8 /* DeckTests.swift */; };
+		C9EE2E3524CA44AA009A92BE /* DeckImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2E3424CA44AA009A92BE /* DeckImage.swift */; };
 		C9EFD94824B5392700709BC9 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EFD94724B5392700709BC9 /* Card.swift */; };
 		C9EFD95224B7A70500709BC9 /* CardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EFD95124B7A70500709BC9 /* CardTests.swift */; };
 		C9EFD95C24B8194400709BC9 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EFD95B24B8194400709BC9 /* Deck.swift */; };
@@ -55,6 +56,7 @@
 		C9B9236C24C3777C00D450A8 /* CardCrucibleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCrucibleUITests.swift; sourceTree = "<group>"; };
 		C9B9236E24C3777C00D450A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9B9237424C378B900D450A8 /* DeckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckTests.swift; sourceTree = "<group>"; };
+		C9EE2E3424CA44AA009A92BE /* DeckImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckImage.swift; sourceTree = "<group>"; };
 		C9EFD94724B5392700709BC9 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		C9EFD94F24B7A70500709BC9 /* CardCrucibleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardCrucibleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9EFD95124B7A70500709BC9 /* CardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTests.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				C96D2D1624305F3000E10B01 /* LaunchScreen.storyboard */,
 				C96D2D1924305F3000E10B01 /* Info.plist */,
 				C935EC0924BE572C00948554 /* CardImage.swift */,
+				C9EE2E3424CA44AA009A92BE /* DeckImage.swift */,
 				C935EC0B24BE5A9B00948554 /* Resources */,
 				C96D2D1324305F3000E10B01 /* Preview Content */,
 			);
@@ -310,6 +313,7 @@
 				C96D2D0C24305F2E00E10B01 /* AppDelegate.swift in Sources */,
 				C96D2D0E24305F2E00E10B01 /* SceneDelegate.swift in Sources */,
 				C9EFD95C24B8194400709BC9 /* Deck.swift in Sources */,
+				C9EE2E3524CA44AA009A92BE /* DeckImage.swift in Sources */,
 				C935EC0A24BE572C00948554 /* CardImage.swift in Sources */,
 				C96D2D1024305F2E00E10B01 /* ContentView.swift in Sources */,
 				C9EFD94824B5392700709BC9 /* Card.swift in Sources */,
@@ -480,13 +484,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CardCrucible/Preview Content\"";
+				DEVELOPMENT_TEAM = 5PU8ZGWL33;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CardCrucible/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.CardCrucible;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CardCrucible;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -499,13 +504,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CardCrucible/Preview Content\"";
+				DEVELOPMENT_TEAM = 5PU8ZGWL33;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CardCrucible/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.CardCrucible;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CardCrucible;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -602,7 +608,7 @@
 				C96D2D1B24305F3000E10B01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		C96D2D1C24305F3000E10B01 /* Build configuration list for PBXNativeTarget "CardCrucible" */ = {
 			isa = XCConfigurationList;
@@ -611,7 +617,7 @@
 				C96D2D1E24305F3000E10B01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		C9B9237324C3777C00D450A8 /* Build configuration list for PBXNativeTarget "CardCrucibleUITests" */ = {
 			isa = XCConfigurationList;
@@ -620,7 +626,7 @@
 				C9B9237224C3777C00D450A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		C9EFD95624B7A70500709BC9 /* Build configuration list for PBXNativeTarget "CardCrucibleTests" */ = {
 			isa = XCConfigurationList;
@@ -629,7 +635,7 @@
 				C9EFD95824B7A70500709BC9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 

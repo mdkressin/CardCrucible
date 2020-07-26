@@ -304,7 +304,7 @@ struct Deck: Equatable {
             throw DeckError.insufficientCardsRemaining(cardsDrawn: drawnCards, message: "attempted to draw \(drawAmount) cards but there were only \(drawnCards.count) cards in the deck")
         }
         
-        for _ in 0..<drawAmount {
+        for _ in 0 ..< drawAmount {
             try drawnCards.append(drawRandomCard())
         }
         return drawnCards

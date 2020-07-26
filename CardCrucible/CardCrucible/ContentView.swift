@@ -25,3 +25,7 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+enum ViewError: Error {
+    case invalidImageName
+}
