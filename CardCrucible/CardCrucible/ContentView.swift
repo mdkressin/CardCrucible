@@ -9,13 +9,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var counter = 0
     var body: some View {
+        
         VStack {
             Text("Card Crucible")
                 .font(.title)
                 .bold()
-            CardImage(resizeRatio: 0.5, imageName: "KH")
-                
+            NavigationView {
+                VStack {
+                    NavigationLink(destination: DeckImage(resizeRatio: 1, backColor: "blue_back", deckSize: 52)) {
+                        Text("War")
+                    }
+                }
+                .navigationBarTitle("Choose your game")
+            }
         }
     }
 }
@@ -26,6 +34,3 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-enum ViewError: Error {
-    case invalidImageName
-}

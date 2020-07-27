@@ -19,6 +19,8 @@ import Foundation
         - A main deck with two sub-decks will consist of an array of 104 cards, and so on
  */
 struct Deck: Equatable {
+    
+    // MARK: Properties
     /**
      Ensures that there is an upper and lower limit for the amount of sub-decks allowed for
      the main deck
@@ -64,15 +66,25 @@ struct Deck: Equatable {
     /// The number of sub-decks this instance is using.
     @AllowedNumSubDecks private var numSubDecks: Int
     
+    // MARK: Initialization
+    
     /**
-     Initializes a new deck that has a specified number of sub-decks within it.
+     Initializes a new deck that has a specified number of sub-decks within it and has the possibility of being shuffled by default.
      
-     - Parameter numSubDecks: The number of subdecks within the main deck. Each sub-deck is itself a full deck containing 52 cards.
+     - Parameters:
+        - numSubDecks: The number of subdecks within the main deck. Each sub-deck is itself a full deck containing 52 cards.
+        - shuffle: Creates a shuffled deck if true, otherwise just creates a deck that will always have the same ordering when created
      */
-    init(numSubDecks: Int = 1) {
+    init(numSubDecks: Int = 1, shuffle: Bool = false) {
         self.numSubDecks = numSubDecks
-        createDeck(numSubDecks: self.numSubDecks)
+        if shuffle {
+            createShuffledDeck(numSubDecks: self.numSubDecks)
+        } else {
+            createDeck(numSubDecks: self.numSubDecks)
+        }
     }
+    
+    // MARK: Methods
     
     /**
      Creates the cards for the main deck according to the specified number of sub-decks.
@@ -228,6 +240,22 @@ struct Deck: Equatable {
         }
         return decks.removeFirst()
     }
+    
+    /**
+     Draw the card from the top of the passed in deck (0th index)
+     
+     - Throws: 'DeckError.drawFromEmptyDeck'
+     if there are no more cards in the main deck to draw
+     (deckSize is 0)
+     - Parameter deck: The card array to draw a card from
+     - Returns: The top card (0th index) of the passed in deck
+     */
+    static func drawCard(deck: inout [Card]) throws -> Card {
+        guard deck.count > 0 else {
+            throw DeckError.drawFromEmptyDeck
+        }
+        return deck.removeFirst()
+    }
 
     /**
      Allow multiple cards to be drawn from the top of the deck (starting at the 0th index)
@@ -256,6 +284,39 @@ struct Deck: Equatable {
         
         for _ in 0 ..< drawAmount {
             try drawnCards.append(drawCard())
+        }
+        return drawnCards
+    }
+    
+    /**
+     Allow multiple cards to be drawn from the top of the passed in deck (starting at the 0th index)
+     
+     - Parameters:
+        - drawAmount: The number of cards to draw from the deck
+        - deck: The card array from which to draw cards from.
+     
+     - Throws:
+     - 'DeckError.negativeDrawAttempt' if the draw amount is less than 0
+     - 'DeckError.insufficientCardsRemaining' if the draw amount is greater than the
+     amount of cards in  the deck
+     
+     - Returns: An array of the cards that were drawn from the passed in deck.
+     */
+    static func drawCards(drawAmount: Int, deck: inout [Card]) throws -> [Card]  {
+        guard drawAmount > 0 else {
+            throw DeckError.negativeDrawAttempt
+        }
+        
+        var drawnCards: [Card] = []
+        guard drawAmount <= deck.count else {
+            // draw the remaining cards from the main deck
+            drawnCards = deck
+            deck.removeAll()
+            throw DeckError.insufficientCardsRemaining(cardsDrawn: drawnCards, message: "attempted to draw \(drawAmount) cards but there were only \(drawnCards.count) cards in the deck")
+        }
+        
+        for _ in 0 ..< drawAmount {
+            try drawnCards.append(Deck.drawCard(deck: &deck))
         }
         return drawnCards
     }

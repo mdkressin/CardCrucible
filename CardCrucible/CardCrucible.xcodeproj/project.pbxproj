@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C92F604E24CE27820067CD7A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F604D24CE27820067CD7A /* Game.swift */; };
+		C92F605024CE2CEC0067CD7A /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F604F24CE2CEC0067CD7A /* Player.swift */; };
 		C935EC0A24BE572C00948554 /* CardImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C935EC0924BE572C00948554 /* CardImage.swift */; };
 		C935EC0D24BE5AD100948554 /* cardData.json in Resources */ = {isa = PBXBuildFile; fileRef = C935EC0C24BE5AD100948554 /* cardData.json */; };
 		C96D2D0C24305F2E00E10B01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96D2D0B24305F2E00E10B01 /* AppDelegate.swift */; };
@@ -42,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C92F604D24CE27820067CD7A /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		C92F604F24CE2CEC0067CD7A /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		C935EC0924BE572C00948554 /* CardImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardImage.swift; sourceTree = "<group>"; };
 		C935EC0C24BE5AD100948554 /* cardData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cardData.json; sourceTree = "<group>"; };
 		C96D2D0824305F2E00E10B01 /* CardCrucible.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardCrucible.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +94,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C92F605124CE2EBD0067CD7A /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				C92F604D24CE27820067CD7A /* Game.swift */,
+			);
+			path = Games;
+			sourceTree = "<group>";
+		};
 		C935EC0B24BE5A9B00948554 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +141,7 @@
 		C96D2D0A24305F2E00E10B01 /* CardCrucible */ = {
 			isa = PBXGroup;
 			children = (
+				C92F605124CE2EBD0067CD7A /* Games */,
 				C935EC0E24BE664D00948554 /* Models */,
 				C96D2D0B24305F2E00E10B01 /* AppDelegate.swift */,
 				C96D2D0D24305F2E00E10B01 /* SceneDelegate.swift */,
@@ -141,6 +154,7 @@
 				C9EE2E3424CA44AA009A92BE /* DeckImage.swift */,
 				C935EC0B24BE5A9B00948554 /* Resources */,
 				C96D2D1324305F3000E10B01 /* Preview Content */,
+				C92F604F24CE2CEC0067CD7A /* Player.swift */,
 			);
 			path = CardCrucible;
 			sourceTree = "<group>";
@@ -317,6 +331,8 @@
 				C935EC0A24BE572C00948554 /* CardImage.swift in Sources */,
 				C96D2D1024305F2E00E10B01 /* ContentView.swift in Sources */,
 				C9EFD94824B5392700709BC9 /* Card.swift in Sources */,
+				C92F605024CE2CEC0067CD7A /* Player.swift in Sources */,
+				C92F604E24CE27820067CD7A /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
