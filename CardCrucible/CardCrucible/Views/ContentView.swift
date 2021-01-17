@@ -18,7 +18,7 @@ struct ContentView: View {
                 .bold()
             NavigationView {
                 VStack {
-                    NavigationLink(destination: DeckImage(resizeRatio: 1, backColor: "blue_back", deckSize: 52)) {
+                    NavigationLink(destination: DeckImage(resizeRatio: 1, backColor: "blue", deckSize: 52)) {
                         Text("War")
                     }
                 }

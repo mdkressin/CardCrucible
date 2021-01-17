@@ -55,9 +55,14 @@ struct Deck: Equatable {
     
     /// The main deck consisting of potentially several sub-decks
     private var decks: [Card] = []
-    /// Getter for the main deck.
-    var deck: [Card] {
+    /// Getter for the main deck (also a setter if the main deck is empty).
+    var deckCards: [Card] {
         get { decks }
+        set {
+            if decks.isEmpty {
+                decks = newValue
+            }
+        }
     }
     /// Getter for the amount of cards in the main deck
     var deckSize: Int {
@@ -87,6 +92,28 @@ struct Deck: Equatable {
     // MARK: Methods
     
     /**
+     Determines the highest card rank inside an array of cards
+     
+     - Parameter cards: The cards to examine and determine the highest card rank amongst the cards
+     
+     - Precondition: `cards` must not be empty
+     
+     - Returns: The highest card rank amongst `cards`
+     
+     - Note: The card rank of "Ace" is determined as the highest possible card rank instead of as the lowest possible rank
+     */
+    static func determineHighestRank(in cards: [Card]) -> Card.Rank {
+        precondition(!cards.isEmpty, "An empty array does not possess a highest ranked card")
+        
+        var highestRank = Card.Rank.two
+        for card in cards {
+            if highestRank < card.rank {
+                highestRank = card.rank
+            }
+        }
+        return highestRank
+    }
+    /**
      Creates the cards for the main deck according to the specified number of sub-decks.
      
      This function creates a new main deck for this Deck instance
@@ -103,14 +130,14 @@ struct Deck: Equatable {
         
         // loop to create sub-decks
         for _ in 0 ..< self.numSubDecks {
-            for suit in Card.Suit.allCases {
-                for rank in Card.Rank.allCases {
+            for rank in Card.Rank.allCases {
+                for suit in Card.Suit.allCases {
                     decks.append(Card(suitValue: suit, rankValue: rank))
                 }
             }
             
         }
-        return deck
+        return deckCards
     }
     /**
      Creates the cards for a main deck according to the specified number of sub-decks.
@@ -119,7 +146,7 @@ struct Deck: Equatable {
      - Returns: The deck containing the specified amount of sub-decks that was created
      */
     @discardableResult
-    static func createDeck(numSubDecks: Int) -> [Card] {
+    static func createDeck(numSubDecks: Int = 1) -> [Card] {
         // as of 07/23/20: 'Property wrappers are not yet supported on local properties'
         // enforce sub-deck amount limits
         var subDecks = min(numSubDecks, AllowedNumSubDecks.maxNumSubDecks)
@@ -163,7 +190,7 @@ struct Deck: Equatable {
      - Returns: The new deck after it has been shuffled.
      */
     @discardableResult
-    mutating func createShuffledDeck(numSubDecks: Int) -> [Card] {
+    mutating func createShuffledDeck(numSubDecks: Int = 1) -> [Card] {
         createDeck(numSubDecks: numSubDecks)
         return shuffle()
     }
@@ -182,7 +209,7 @@ struct Deck: Equatable {
      - Returns: The new deck after it has been shuffled.
      */
     @discardableResult
-    static func createShuffledDeck(numSubDecks: Int) -> [Card] {
+    static func createShuffledDeck(numSubDecks: Int = 1) -> [Card] {
         Deck.shuffle(deck: Deck.createDeck(numSubDecks: numSubDecks))
     }
     /**
@@ -202,7 +229,7 @@ struct Deck: Equatable {
         while tempDeck == decks {
             decks.shuffle()
         }
-        return deck
+        return deckCards
     }
     /**
      Shuffle a deck of cards by changing the ordering of the card array.
@@ -247,14 +274,14 @@ struct Deck: Equatable {
      - Throws: 'DeckError.drawFromEmptyDeck'
      if there are no more cards in the main deck to draw
      (deckSize is 0)
-     - Parameter deck: The card array to draw a card from
+     - Parameter from: The card array to draw a card from
      - Returns: The top card (0th index) of the passed in deck
      */
-    static func drawCard(deck: inout [Card]) throws -> Card {
-        guard deck.count > 0 else {
+    static func drawCard(from: inout [Card]) throws -> Card {
+        guard from.count > 0 else {
             throw DeckError.drawFromEmptyDeck
         }
-        return deck.removeFirst()
+        return from.removeFirst()
     }
 
     /**
@@ -293,30 +320,30 @@ struct Deck: Equatable {
      
      - Parameters:
         - drawAmount: The number of cards to draw from the deck
-        - deck: The card array from which to draw cards from.
+        - from: The card array from which to draw cards from.
      
      - Throws:
-     - 'DeckError.negativeDrawAttempt' if the draw amount is less than 0
-     - 'DeckError.insufficientCardsRemaining' if the draw amount is greater than the
+        - 'DeckError.negativeDrawAttempt' if the draw amount is less than 0
+        - 'DeckError.insufficientCardsRemaining' if the draw amount is greater than the
      amount of cards in  the deck
      
      - Returns: An array of the cards that were drawn from the passed in deck.
      */
-    static func drawCards(drawAmount: Int, deck: inout [Card]) throws -> [Card]  {
+    static func drawCards(drawAmount: Int, from: inout [Card]) throws -> [Card]  {
         guard drawAmount > 0 else {
             throw DeckError.negativeDrawAttempt
         }
         
         var drawnCards: [Card] = []
-        guard drawAmount <= deck.count else {
+        guard drawAmount <= from.count else {
             // draw the remaining cards from the main deck
-            drawnCards = deck
-            deck.removeAll()
+            drawnCards = from
+            from.removeAll()
             throw DeckError.insufficientCardsRemaining(cardsDrawn: drawnCards, message: "attempted to draw \(drawAmount) cards but there were only \(drawnCards.count) cards in the deck")
         }
         
         for _ in 0 ..< drawAmount {
-            try drawnCards.append(Deck.drawCard(deck: &deck))
+            try drawnCards.append(Deck.drawCard(from: &from))
         }
         return drawnCards
     }
@@ -340,14 +367,33 @@ struct Deck: Equatable {
     }
     
     /**
-     Allow multiple cards to be drawn from the top of the deck (starting at the 0th index)
+     Allow card to be drawn randomly from an array of cards.
      
-     - Parameter drawAmount: The number of cards to draw from the deck
+     Uses Array.randomElement function to apply randomness
+     
+     - Parameter from: The array of cards to draw randomly from
+     
+     - Throws: 'DeckError.drawFromEmptyDeck'
+     if there are no more cards in the array of cards to draw
+     
+     - Returns: The random card that was removed from the array of cards
+     */
+    static func drawRandomCard(_ from: inout [Card]) throws -> Card {
+        guard !from.isEmpty else {
+            throw DeckError.drawFromEmptyDeck
+        }
+        return from.remove(at: from.firstIndex(of: from.randomElement()!)!)
+    }
+    
+    /**
+     Allow multiple cards to be drawn randomly from the deck
+     
+     - Parameter drawAmount: The number of cards to draw randomly from the deck
      
      - Throws:
-     - 'DeckError.negativeDrawAttempt' if the draw amount is less than 0
-     - 'DeckError.insufficientCardsRemaining' if the draw amount is greater than the
-     amount of cards in  the deck
+        - 'DeckError.negativeDrawAttempt' if the draw amount is less than 0
+        - 'DeckError.insufficientCardsRemaining' if the draw amount is greater than the
+     amount of cards in the deck
      
      - Returns: An array of the cards that were randomly drawn from the main deck.
      */
@@ -371,6 +417,49 @@ struct Deck: Equatable {
         return drawnCards
     }
     
+    /**
+     Allow multiple cards to be drawn randomly from an array of cards
+     
+     - Parameters:
+        - drawAmount: The number of cards to draw randomly from an array of cards
+        - from: The array of cards to draw randomly from
+     
+     - Throws:
+        - 'DeckError.negativeDrawAttempt' if the draw amount is less than 0
+        - 'DeckError.insufficientCardsRemaining' if the draw amount is greater than the
+     amount of cards in array of cards
+     
+     - Returns: An array of the cards that were randomly drawn from the array of cards.
+     */
+    static func drawRandomCards(drawAmount: Int, from: inout [Card]) throws -> [Card] {
+        guard drawAmount > 0 else {
+            throw DeckError.negativeDrawAttempt
+        }
+        
+        var drawnCards: [Card] = []
+        guard drawAmount <= from.count else {
+            // randomly draw the remaining cards from the array of cards
+            for _ in 0 ..< from.count {
+                try drawnCards.append(Deck.drawRandomCard(&from))
+            }
+            throw DeckError.insufficientCardsRemaining(cardsDrawn: drawnCards, message: "attempted to draw \(drawAmount) cards but there were only \(drawnCards.count) cards in the array of cards")
+        }
+        
+        for _ in 0 ..< drawAmount {
+            try drawnCards.append(Deck.drawRandomCard(&from))
+        }
+        return drawnCards
+    }
+    
+    /**
+     Compares two Deck objects to see if they are equivalent
+     
+     - Parameters:
+        - left: A Deck object to compare
+        - right: A Deck objec to compare
+     
+     - Returns: True if the two Deck objects possess the same amount of sub-decks and have equivalent card arrays, false otherwise.
+     */
     static func ==(left: Deck, right: Deck) -> Bool {
         // both decks should have the same number of sub-decks
         guard left.numSubDecks == right.numSubDecks else {

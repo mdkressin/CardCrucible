@@ -42,7 +42,7 @@ class CardTests: XCTestCase {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
                 let jsonObj = try JSON(data: data)
-                print("\(jsonObj[Card.Suit.diamonds.rawValue][Card.Rank.queen.rawValue].stringValue)")
+                XCTAssertEqual("\(jsonObj[Card.Suit.diamonds.rawValue][Card.Rank.toString(rank: Card.Rank.queen)].stringValue)", "QD")
                 print("jsonData:\(jsonObj)")
             } catch let error {
                 XCTFail("parse error: \(error.localizedDescription)")

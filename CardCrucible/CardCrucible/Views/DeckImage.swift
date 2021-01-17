@@ -36,18 +36,18 @@ struct DeckImage: View {
     var imageName: String {
         get {
             switch backColor {
-                case blueBack:
-                    return backColor
-                case grayBack:
-                    return backColor
-                case greenBack:
-                    return backColor
-                case purpleBack:
-                    return backColor
-                case redBack:
-                    return backColor
-                case yellowBack:
-                    return backColor
+                case "blue":
+                    return blueBack
+                case "gray":
+                    return grayBack
+                case "green":
+                    return greenBack
+                case "purple":
+                    return purpleBack
+                case "red":
+                    return redBack
+                case "yellow":
+                    return yellowBack
                 default:
                     fatalError("invalid image name for deck image")
             }
@@ -59,17 +59,17 @@ struct DeckImage: View {
     var color: Color {
         get {
             switch backColor {
-                case blueBack:
+                case "blue":
                     return Color.blue
-                case grayBack:
+                case "gray":
                     return Color.black
-                case greenBack:
+                case "green":
                     return Color.green
-                case purpleBack:
+                case "purple":
                     return Color.purple
-                case redBack:
+                case "red":
                     return Color.red
-                case yellowBack:
+                case "yellow":
                     return Color.orange
                 default:
                     fatalError("invalid image name for deck image")
@@ -100,6 +100,6 @@ struct DeckImage: View {
 
 struct DeckImage_Previews: PreviewProvider {
     static var previews: some View {
-        DeckImage(resizeRatio: 0.5, backColor: "blue_back", deckSize: 52)
+        DeckImage(resizeRatio: 0.5, backColor: "blue", deckSize: 52)
     }
 }
