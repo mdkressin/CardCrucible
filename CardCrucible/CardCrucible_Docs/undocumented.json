@@ -1,0 +1,446 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/AppDelegate.swift",
+      "line": 12,
+      "symbol": "AppDelegate",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/AppDelegate.swift",
+      "line": 16,
+      "symbol": "AppDelegate.application(_:didFinishLaunchingWithOptions:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/AppDelegate.swift",
+      "line": 23,
+      "symbol": "AppDelegate.application(_:configurationForConnecting:options:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/AppDelegate.swift",
+      "line": 29,
+      "symbol": "AppDelegate.application(_:didDiscardSceneSessions:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Models/Card.swift",
+      "line": 17,
+      "symbol": "Card.Suit.clubs",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Models/Card.swift",
+      "line": 17,
+      "symbol": "Card.Suit.diamonds",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Models/Card.swift",
+      "line": 17,
+      "symbol": "Card.Suit.hearts",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Models/Card.swift",
+      "line": 18,
+      "symbol": "Card.Suit.spades",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Models/Card.swift",
+      "line": 27,
+      "symbol": "Card.Rank.eight",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Models/Card.swift",
+      "line": 27,
+      "symbol": "Card.Rank.five",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Models/Card.swift",
+      "line": 27,
+      "symbol": "Card.Rank.four",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Models/Card.swift",
+      "line": 27,
+      "symbol": "Card.Rank.nine",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Models/Card.swift",
+      "line": 27,
+      "symbol": "Card.Rank.seven",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Models/Card.swift",
+      "line": 27,
+      "symbol": "Card.Rank.six",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Models/Card.swift",
+      "line": 27,
+      "symbol": "Card.Rank.ten",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Models/Card.swift",
+      "line": 27,
+      "symbol": "Card.Rank.three",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Models/Card.swift",
+      "line": 27,
+      "symbol": "Card.Rank.two",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Models/Card.swift",
+      "line": 28,
+      "symbol": "Card.Rank.jack",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Models/Card.swift",
+      "line": 28,
+      "symbol": "Card.Rank.king",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Models/Card.swift",
+      "line": 28,
+      "symbol": "Card.Rank.queen",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Models/Card.swift",
+      "line": 29,
+      "symbol": "Card.Rank.ace",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Models/Card.swift",
+      "line": 230,
+      "symbol": "Card.image",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Models/Card.swift",
+      "line": 235,
+      "symbol": "=/(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Models/Deck.swift",
+      "line": 39,
+      "symbol": "Deck.AllowedNumSubDecks.init(wrappedValue:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Models/Deck.swift",
+      "line": 44,
+      "symbol": "Deck.AllowedNumSubDecks.wrappedValue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/SceneDelegate.swift",
+      "line": 12,
+      "symbol": "SceneDelegate",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/SceneDelegate.swift",
+      "line": 14,
+      "symbol": "SceneDelegate.window",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/SceneDelegate.swift",
+      "line": 17,
+      "symbol": "SceneDelegate.scene(_:willConnectTo:options:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/SceneDelegate.swift",
+      "line": 34,
+      "symbol": "SceneDelegate.sceneDidDisconnect(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/SceneDelegate.swift",
+      "line": 41,
+      "symbol": "SceneDelegate.sceneDidBecomeActive(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/SceneDelegate.swift",
+      "line": 46,
+      "symbol": "SceneDelegate.sceneWillResignActive(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/SceneDelegate.swift",
+      "line": 51,
+      "symbol": "SceneDelegate.sceneWillEnterForeground(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/SceneDelegate.swift",
+      "line": 56,
+      "symbol": "SceneDelegate.sceneDidEnterBackground(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Views/CardImage.swift",
+      "line": 11,
+      "symbol": "CardImage",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Views/CardImage.swift",
+      "line": 12,
+      "symbol": "CardImage.widthRatio",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Views/CardImage.swift",
+      "line": 13,
+      "symbol": "CardImage.heightRatio",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Views/CardImage.swift",
+      "line": 14,
+      "symbol": "CardImage.resizeRatio",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Views/CardImage.swift",
+      "line": 15,
+      "symbol": "CardImage.imageName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Views/CardImage.swift",
+      "line": 25,
+      "symbol": "CardImage_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Views/ContentView.swift",
+      "line": 11,
+      "symbol": "ContentView",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Views/ContentView.swift",
+      "line": 12,
+      "symbol": "ContentView.counter",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Views/ContentView.swift",
+      "line": 31,
+      "symbol": "ContentView_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Views/DeckImage.swift",
+      "line": 11,
+      "symbol": "DeckImage",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Views/DeckImage.swift",
+      "line": 15,
+      "symbol": "DeckImage.blueBack",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Views/DeckImage.swift",
+      "line": 16,
+      "symbol": "DeckImage.redBack",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Views/DeckImage.swift",
+      "line": 17,
+      "symbol": "DeckImage.purpleBack",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Views/DeckImage.swift",
+      "line": 18,
+      "symbol": "DeckImage.grayBack",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Views/DeckImage.swift",
+      "line": 19,
+      "symbol": "DeckImage.yellowBack",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Views/DeckImage.swift",
+      "line": 20,
+      "symbol": "DeckImage.greenBack",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Views/DeckImage.swift",
+      "line": 23,
+      "symbol": "DeckImage.widthRatio",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Views/DeckImage.swift",
+      "line": 25,
+      "symbol": "DeckImage.xDeckSizeOffset",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Views/DeckImage.swift",
+      "line": 26,
+      "symbol": "DeckImage.heightRatio",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Views/DeckImage.swift",
+      "line": 28,
+      "symbol": "DeckImage.yDeckSizeOffset",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Views/DeckImage.swift",
+      "line": 30,
+      "symbol": "DeckImage.resizeRatio",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Views/DeckImage.swift",
+      "line": 33,
+      "symbol": "DeckImage.backColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Views/DeckImage.swift",
+      "line": 36,
+      "symbol": "DeckImage.imageName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Views/DeckImage.swift",
+      "line": 59,
+      "symbol": "DeckImage.color",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Views/DeckImage.swift",
+      "line": 81,
+      "symbol": "DeckImage.deckSize",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Views/DeckImage.swift",
+      "line": 101,
+      "symbol": "DeckImage_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Views/StartViewController.swift",
+      "line": 11,
+      "symbol": "StartViewController",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/Views/StartViewController.swift",
+      "line": 17,
+      "symbol": "StartViewController_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/WarGameView.swift",
+      "line": 11,
+      "symbol": "WarGameView",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible/CardCrucible/WarGameView.swift",
+      "line": 20,
+      "symbol": "WarGameView_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/Matt/Desktop/My_Code/CardCrucible/CardCrucible"
+}

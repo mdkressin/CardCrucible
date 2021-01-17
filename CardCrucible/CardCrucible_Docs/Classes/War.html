@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>War Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/War" class="dashAnchor"></a>
+    <a title="War Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">CardCrucible 1.0 Docs</a> (64% documented)</p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">CardCrucible Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        War Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Game.html">Game</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Player.html">Player</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SceneDelegate.html">SceneDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TournamentPlayer.html">TournamentPlayer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/War.html">War</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/DeckError.html">DeckError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/GameEvent.html">GameEvent</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:12CardCrucible2edoiySbSayAA0A0VG_AEtF">=/(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/CardGame.html">CardGame</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Card.html">Card</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Card/Suit.html">– Suit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Card/Rank.html">– Rank</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CardImage.html">CardImage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CardImage_Previews.html">CardImage_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ContentView.html">ContentView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ContentView_Previews.html">ContentView_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Deck.html">Deck</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Deck/AllowedNumSubDecks.html">– AllowedNumSubDecks</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DeckImage.html">DeckImage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DeckImage_Previews.html">DeckImage_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/StartViewController.html">StartViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/StartViewController_Previews.html">StartViewController_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/WarGameView.html">WarGameView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/WarGameView_Previews.html">WarGameView_Previews</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>War</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">War</span> <span class="p">:</span> <span class="kt"><a href="../Classes/Game.html">Game</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>Split the deck equally between all players and then be the first player to collect all the cards in the deck</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    See <a href="https://bicyclecards.com/how-to-play/war/">War Rules</a> for more information on how to play the game
+
+</div>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Properties"></a>
+                <a name="//apple_ref/swift/Section/Properties" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Properties"></a>
+                  <h3 class="section-name"><p>Properties</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible3WarC014cardsNeededForC0SivpZ"></a>
+                    <a name="//apple_ref/swift/Variable/cardsNeededForWar" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible3WarC014cardsNeededForC0SivpZ">cardsNeededForWar</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The number of cards a player must have in order to participate in war</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">cardsNeededForWar</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible3WarC11roundWinnerSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/roundWinner" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible3WarC11roundWinnerSSSgvp">roundWinner</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The id of the player who won the round</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">roundWinner</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Initialization"></a>
+                <a name="//apple_ref/swift/Section/Initialization" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Initialization"></a>
+                  <h3 class="section-name"><p>Initialization</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible3WarC11numSubDecksACSi_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(numSubDecks:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible3WarC11numSubDecksACSi_tcfc">init(numSubDecks:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a new game with a deck containing the specified amount of subdecks</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">required</span> <span class="nf">init</span><span class="p">(</span><span class="nv">numSubDecks</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>numSubDecks</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The amount of sup-decks that the game deck will contain</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible3WarC11numSubDecks11withPlayersACSi_SayAA16TournamentPlayerCGtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(numSubDecks:withPlayers:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible3WarC11numSubDecks11withPlayersACSi_SayAA16TournamentPlayerCGtcfc">init(numSubDecks:<wbr>withPlayers:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a new game with a deck containing the specified amount of subdecks and with the given players</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">numSubDecks</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">withPlayers</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/TournamentPlayer.html">TournamentPlayer</a></span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>numSubDecks</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The number of sub-decks that the main deck should contain</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>withPlayers</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The players that will participate in the game</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible3WarC11numSubDecks11withPlayersACSi_SayAA6PlayerCGtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(numSubDecks:withPlayers:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible3WarC11numSubDecks11withPlayersACSi_SayAA6PlayerCGtcfc">init(numSubDecks:<wbr>withPlayers:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a new game with a deck containing the specified amount of subdecks and with the given players</p>
+
+<p>This initializer converts the given array of players into a new array of TournamentPlayers with matching names, ids, and cards.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">numSubDecks</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">withPlayers</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/Player.html">Player</a></span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>numSubDecks</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The number of sub-decks that the main deck should contain</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>withPlayers</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The players that will participate in the game</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Methods"></a>
+                <a name="//apple_ref/swift/Section/Methods" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Methods"></a>
+                  <h3 class="section-name"><p>Methods</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible3WarC9addPlayer6playeryAA0E0C_tF"></a>
+                    <a name="//apple_ref/swift/Method/addPlayer(player:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible3WarC9addPlayer6playeryAA0E0C_tF">addPlayer(player:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds the given player to the game as a TournamentPlayer</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>The new TournamentPlayer contains a matching name, id, and cards</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">addPlayer</span><span class="p">(</span><span class="nv">player</span><span class="p">:</span> <span class="kt"><a href="../Classes/Player.html">Player</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>player</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The player to add to the game</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible3WarC10addPlayers7playersySayAA6PlayerCG_tF"></a>
+                    <a name="//apple_ref/swift/Method/addPlayers(players:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible3WarC10addPlayers7playersySayAA6PlayerCG_tF">addPlayers(players:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a list of players to the game as TournamentPlayers</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>Uses the method <code>warObj.addPlayer()</code> to convert the players from Players into TournamentPlayers</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">addPlayers</span><span class="p">(</span><span class="nv">players</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/Player.html">Player</a></span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>players</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The list of players to add to the game</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible3WarC9dealCardsyyF"></a>
+                    <a name="//apple_ref/swift/Method/dealCards()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible3WarC9dealCardsyyF">dealCards()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Continuously deals cards to all players in the game until the main deck is empty, then returns</p>
+<div class="aside aside-precondition">
+    <p class="aside-title">Precondition</p>
+    There is at least one player in the game
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">dealCards</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible3WarC9startGameyyF"></a>
+                    <a name="//apple_ref/swift/Method/startGame()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible3WarC9startGameyyF">startGame()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Start a game of War between 2 or more players!</p>
+<div class="aside aside-precondition">
+    <p class="aside-title">Precondition</p>
+    There are at least 2 players in the game
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">startGame</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible3WarC10placeCardsSDySSSayAA0A0VGG_AGtyF"></a>
+                    <a name="//apple_ref/swift/Method/placeCards()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible3WarC10placeCardsSDySSSayAA0A0VGG_AGtyF">placeCards()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Draws the top card from the cards that each player participating in the game still possesses. If there are no more cards, it then draws from the discard pile associated with the player. If the discard pile is also empty, then it eliminates the player from the game.</p>
+<div class="aside aside-precondition">
+    <p class="aside-title">Precondition</p>
+    <p>The players participating in the game are of type <code><a href="../Classes/TournamentPlayer.html">TournamentPlayer</a></code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">func</span> <span class="nf">placeCards</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">([</span><span class="kt">String</span> <span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/Card.html">Card</a></span><span class="p">]],</span> <span class="p">[</span><span class="kt"><a href="../Structs/Card.html">Card</a></span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A dictionary with keys of player ids and values of the card that player used this round as well as the list of all the cards played during the round.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible3WarC013determineHighA7HoldersySaySSGSDySSSayAA0A0VGGz_SbtF"></a>
+                    <a name="//apple_ref/swift/Method/determineHighCardHolders(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible3WarC013determineHighA7HoldersySaySSGSDySSSayAA0A0VGGz_SbtF">determineHighCardHolders(_:<wbr>_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Determines the player(s) that possessed the highest ranking card in the round</p>
+
+<p>This function first determines the highest card rank amongst the current round&rsquo;s cards using <code>Deck.determineHighestRank()</code>. It then examines the cards from all the players and collects the ids of the players that played cards with matching ranks of the determined highest card rank during the round.</p>
+
+<p>There is a special case where this function can also be used to determine which players placed the cards that had the highest suit in the event of a draw and one final attempt is being made to determine a round winner.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">func</span> <span class="nf">determineHighCardHolders</span><span class="p">(</span><span class="n">_</span> <span class="nv">roundCards</span><span class="p">:</span> <span class="k">inout</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/Card.html">Card</a></span><span class="p">]],</span> <span class="n">_</span> <span class="nv">determineFromDraw</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>roundCards</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A dictionary with keys corresponding to player ids and values corresponding to the card that the player placed in the round</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>determineFromDraw</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Signifies whether this method is determining the high card holders between players who ended up in a draw</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The ids of the players who played the highest ranked card in the round</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible3WarC3waryySaySSG_SayAA0A0VGztKF"></a>
+                    <a name="//apple_ref/swift/Method/war(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible3WarC3waryySaySSG_SayAA0A0VGztKF">war(_:<wbr>_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Players must war to determine a round winner, with the winner receiving all of the cards used during the duration of the war..</p>
+
+<p>There are two kinds of situations that can occur when two or more players go to war.</p>
+
+<ol>
+<li><em>One or more players possess enough cards to participate in a complete round of war.</em> In this situation, if any of the other players do not have enough cards left to participate in a complete war, then they are eliminated from the game and their cards are added to the array of <code>prizeCards</code> to be given to the eventual winner of the war. The remaining players place down the necessary amount of cards needed to war, with the final card that each player placed used to determine the outcome of the war. If a player&rsquo;s final placed card is the sole card with the highest rank, then that player wins the war and all cards in <code>prizeCards</code> are added to that player&rsquo;s cards. Otherwise, all players in the war who placed final cards of the highest, equivalent rank participate in another war.</li>
+<li><em>None of the players have enough cards to participate in a complete round of war.</em> In this situation, the players participating in the war use of all of their remaining to war. Any players that have less cards remaining than other players are eliminated from the game and have all of their cards added to <code>prizeCards</code>. The players who have not been eliminated then compare the final cards that they place. If there is a sole final card that has the highest rank in the war, then the player who placed the card wins the war and all cards in <code>prizeCards</code> are added to their cards. Otherwise, the war ends in a draw</li>
+</ol>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p><code>GameEvent.draw</code> if there are no more cards that the players are able to put into play but there is no round winner</p>
+
+</div><div class="aside aside-precondition">
+    <p class="aside-title">Precondition</p>
+    <p>All players are of type <code><a href="../Classes/TournamentPlayer.html">TournamentPlayer</a></code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">func</span> <span class="nf">war</span><span class="p">(</span><span class="n">_</span> <span class="nv">highCardHolders</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">],</span> <span class="n">_</span> <span class="nv">prizeCards</span><span class="p">:</span> <span class="k">inout</span> <span class="p">[</span><span class="kt"><a href="../Structs/Card.html">Card</a></span><span class="p">])</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>highCardHolders</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ids of the players who possessed cards of equivalent ranks and that were also the highest ranked cards in the round</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>prizeCards</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The cards used during the entire round that will be given to the final winner of the round</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible3WarC16updateGameStatusyyF"></a>
+                    <a name="//apple_ref/swift/Method/updateGameStatus()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible3WarC16updateGameStatusyyF">updateGameStatus()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Checks to see if the game is over and updates the <code>gameover</code> property</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateGameStatus</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible3WarC10startRoundyyF"></a>
+                    <a name="//apple_ref/swift/Method/startRound()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible3WarC10startRoundyyF">startRound()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Has all players place a card during the round and then determines the high card holders of the round and whether there is a round winner or that two or more players need to participate in a war.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startRound</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>Copyright message here</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
