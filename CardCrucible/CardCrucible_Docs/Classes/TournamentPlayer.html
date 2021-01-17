@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>TournamentPlayer Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/TournamentPlayer" class="dashAnchor"></a>
+    <a title="TournamentPlayer Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">CardCrucible 1.0 Docs</a> (64% documented)</p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">CardCrucible Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        TournamentPlayer Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Game.html">Game</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Player.html">Player</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SceneDelegate.html">SceneDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TournamentPlayer.html">TournamentPlayer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/War.html">War</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/DeckError.html">DeckError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/GameEvent.html">GameEvent</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:12CardCrucible2edoiySbSayAA0A0VG_AEtF">=/(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/CardGame.html">CardGame</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Card.html">Card</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Card/Suit.html">– Suit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Card/Rank.html">– Rank</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CardImage.html">CardImage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CardImage_Previews.html">CardImage_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ContentView.html">ContentView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ContentView_Previews.html">ContentView_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Deck.html">Deck</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Deck/AllowedNumSubDecks.html">– AllowedNumSubDecks</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DeckImage.html">DeckImage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DeckImage_Previews.html">DeckImage_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/StartViewController.html">StartViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/StartViewController_Previews.html">StartViewController_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/WarGameView.html">WarGameView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/WarGameView_Previews.html">WarGameView_Previews</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>TournamentPlayer</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">TournamentPlayer</span> <span class="p">:</span> <span class="kt"><a href="../Classes/Player.html">Player</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>A type of player that is participating in a card game that involves elimination</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    The player is not necessarily a part of a tournament and it is also possible that the game being played allows for the join again after elimination
+
+</div>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Properties"></a>
+                <a name="//apple_ref/swift/Section/Properties" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Properties"></a>
+                  <h3 class="section-name"><p>Properties</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible16TournamentPlayerC12isEliminatedSbvp"></a>
+                    <a name="//apple_ref/swift/Property/isEliminated" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible16TournamentPlayerC12isEliminatedSbvp">isEliminated</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets whether player has been eliminated yet and sets whether players has been eliminated yet</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">isEliminated</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible16TournamentPlayerC15isNotEliminatedSbvp"></a>
+                    <a name="//apple_ref/swift/Property/isNotEliminated" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible16TournamentPlayerC15isNotEliminatedSbvp">isNotEliminated</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets whether player has not been eliminated yet and sets whether players has not been eliminated yet</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">isNotEliminated</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Initialization"></a>
+                <a name="//apple_ref/swift/Section/Initialization" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Initialization"></a>
+                  <h3 class="section-name"><p>Initialization</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible16TournamentPlayerCyACSScfc"></a>
+                    <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible16TournamentPlayerCyACSScfc">init(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a new TournamentPlayer object</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The name of the player</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible16TournamentPlayerCyAcA0D0Ccfc"></a>
+                    <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible16TournamentPlayerCyAcA0D0Ccfc">init(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Construct a TournamentPlayer object from a Player object</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">player</span><span class="p">:</span> <span class="kt"><a href="../Classes/Player.html">Player</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>player</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The player to construct a TournamentPlayer object of</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible16TournamentPlayerCyACSS_10Foundation4UUIDVSayAA0A0VGtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(_:_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible16TournamentPlayerCyACSS_10Foundation4UUIDVSayAA0A0VGtcfc">init(_:<wbr>_:<wbr>_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Construct a new TournamentPlayer object</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">_</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">UUID</span> <span class="o">=</span> <span class="kt">UUID</span><span class="p">(),</span> <span class="n">_</span> <span class="nv">cards</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/Card.html">Card</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kt"><a href="../Structs/Card.html">Card</a></span><span class="p">]())</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The name for the player</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The id for the player. If no id is provided, then a unique id is generated for the player</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cards</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The cards the player will possess. If no cards are provided, then the player is given an empty array of cards</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Methods"></a>
+                <a name="//apple_ref/swift/Section/Methods" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Methods"></a>
+                  <h3 class="section-name"><p>Methods</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible16TournamentPlayerC02toC7PlayersySayACGSayAA0D0CGFZ"></a>
+                    <a name="//apple_ref/swift/Method/toTournamentPlayers(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible16TournamentPlayerC02toC7PlayersySayACGSayAA0D0CGFZ">toTournamentPlayers(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Takes an array of Players and returns them as an array of TournamentPlayers</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">toTournamentPlayers</span><span class="p">(</span><span class="n">_</span> <span class="nv">players</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/Player.html">Player</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">TournamentPlayer</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>players</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The list of players to transform into TournamentPlayers</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The given array of Players as an array of TournamentPlayers</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible16TournamentPlayerC4copy4withyp10ObjectiveC6NSZoneVSg_tF"></a>
+                    <a name="//apple_ref/swift/Method/copy(with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible16TournamentPlayerC4copy4withyp10ObjectiveC6NSZoneVSg_tF">copy(with:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Construct a copy of the TournamentPlayer object and return it</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">copy</span><span class="p">(</span><span class="n">with</span> <span class="nv">zone</span><span class="p">:</span> <span class="kt">NSZone</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An identical copy of the TournamentPlayer</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>Copyright message here</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

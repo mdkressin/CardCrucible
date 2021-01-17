@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Rank Enumeration Reference</title>
+    <link rel="stylesheet" type="text/css" href="../../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../../js/jquery.min.js" defer></script>
+    <script src="../../js/jazzy.js" defer></script>
+    
+    <script src="../../js/lunr.min.js" defer></script>
+    <script src="../../js/typeahead.jquery.js" defer></script>
+    <script src="../../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Enum/Rank" class="dashAnchor"></a>
+    <a title="Rank Enumeration Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../../index.html">CardCrucible 1.0 Docs</a> (64% documented)</p>
+        <p class="header-right">
+          <form role="search" action="../../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../../index.html">CardCrucible Reference</a>
+        <img id="carat" src="../../img/carat.png" />
+        Rank Enumeration Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/Game.html">Game</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/Player.html">Player</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/SceneDelegate.html">SceneDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/TournamentPlayer.html">TournamentPlayer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/War.html">War</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Enums/DeckError.html">DeckError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Enums/GameEvent.html">GameEvent</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Functions.html#/s:12CardCrucible2edoiySbSayAA0A0VG_AEtF">=/(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Protocols/CardGame.html">CardGame</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Structs/Card.html">Card</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Card/Suit.html">– Suit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Card/Rank.html">– Rank</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/CardImage.html">CardImage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/CardImage_Previews.html">CardImage_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/ContentView.html">ContentView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/ContentView_Previews.html">ContentView_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Deck.html">Deck</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Deck/AllowedNumSubDecks.html">– AllowedNumSubDecks</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/DeckImage.html">DeckImage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/DeckImage_Previews.html">DeckImage_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/StartViewController.html">StartViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/StartViewController_Previews.html">StartViewController_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/WarGameView.html">WarGameView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/WarGameView_Previews.html">WarGameView_Previews</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Rank</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">Rank</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kt">CaseIterable</span><span class="p">,</span> <span class="kt">Comparable</span></code></pre>
+
+                </div>
+              </div>
+            <p>The Rank of the card</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible0A0V4RankO3twoyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/two" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible0A0V4RankO3twoyA2EmF">two</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">two</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible0A0V4RankO5threeyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/three" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible0A0V4RankO5threeyA2EmF">three</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">three</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible0A0V4RankO4fouryA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/four" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible0A0V4RankO4fouryA2EmF">four</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">four</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible0A0V4RankO4fiveyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/five" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible0A0V4RankO4fiveyA2EmF">five</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">five</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible0A0V4RankO3sixyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/six" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible0A0V4RankO3sixyA2EmF">six</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">six</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible0A0V4RankO5sevenyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/seven" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible0A0V4RankO5sevenyA2EmF">seven</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">seven</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible0A0V4RankO5eightyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/eight" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible0A0V4RankO5eightyA2EmF">eight</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">eight</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible0A0V4RankO4nineyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/nine" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible0A0V4RankO4nineyA2EmF">nine</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">nine</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible0A0V4RankO3tenyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/ten" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible0A0V4RankO3tenyA2EmF">ten</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">ten</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible0A0V4RankO4jackyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/jack" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible0A0V4RankO4jackyA2EmF">jack</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">jack</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible0A0V4RankO5queenyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/queen" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible0A0V4RankO5queenyA2EmF">queen</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">queen</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible0A0V4RankO4kingyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/king" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible0A0V4RankO4kingyA2EmF">king</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">king</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible0A0V4RankO3aceyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/ace" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible0A0V4RankO3aceyA2EmF">ace</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">ace</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible0A0V4RankO10fromString06stringC0AESgSS_tFZ"></a>
+                    <a name="//apple_ref/swift/Method/fromString(stringRank:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible0A0V4RankO10fromString06stringC0AESgSS_tFZ">fromString(stringRank:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the equivalent rank of the passed in string</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">fromString</span><span class="p">(</span><span class="nv">stringRank</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Rank</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>stringRank</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The string equivalent of a Card rank.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The Card rank equivalent of the passed in string if the string is
+       valid, otherwise nil</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12CardCrucible0A0V4RankO8toString4rankSSAE_tFZ"></a>
+                    <a name="//apple_ref/swift/Method/toString(rank:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12CardCrucible0A0V4RankO8toString4rankSSAE_tFZ">toString(rank:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Converts the given rank to its equivalent String value</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">toString</span><span class="p">(</span><span class="nv">rank</span><span class="p">:</span> <span class="kt">Rank</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>rank</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The rank to convert to a string</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The String equivalent of the passed in Rank</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:SL1loiySbx_xtFZ"></a>
+                    <a name="//apple_ref/swift/Method/&lt;(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:SL1loiySbx_xtFZ"><(_:<wbr>_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="o">&lt;</span> <span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt"><a href="../../Structs/Card.html">Card</a></span><span class="o">.</span><span class="kt">Rank</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt"><a href="../../Structs/Card.html">Card</a></span><span class="o">.</span><span class="kt">Rank</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>Copyright message here</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

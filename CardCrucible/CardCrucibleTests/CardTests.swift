@@ -42,7 +42,7 @@ class CardTests: XCTestCase {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
                 let jsonObj = try JSON(data: data)
-                print("\(jsonObj[Card.Suit.diamonds.rawValue][Card.Rank.queen.rawValue].stringValue)")
+                XCTAssertEqual("\(jsonObj[Card.Suit.diamonds.rawValue][Card.Rank.toString(rank: Card.Rank.queen)].stringValue)", "QD")
                 print("jsonData:\(jsonObj)")
             } catch let error {
                 XCTFail("parse error: \(error.localizedDescription)")
@@ -53,44 +53,47 @@ class CardTests: XCTestCase {
     }
     func testValues() throws {
         let three = Card(suitValue: .clubs, rankValue: .three)
-        XCTAssertTrue(three.cardValue == 3)
+        XCTAssertEqual(three.cardValue, 3)
 
-        XCTAssertTrue(ten.cardValue == 10)
-        XCTAssertTrue(jack.cardValue == 10)
-        XCTAssertTrue(ten.cardValue == jack.cardValue)
+        XCTAssertEqual(ten.cardValue, 10)
+        XCTAssertEqual(jack.cardValue, 11)
+        XCTAssertNotEqual(ten.cardValue, jack.cardValue)
         
         let twoH = Card(suitValue: .hearts, rankValue: .two)
         let twoS = Card(suitValue: .spades, rankValue: .two)
-        XCTAssertTrue(twoH.cardValue == 2)
-        XCTAssertTrue(twoS.cardValue == 2)
-        XCTAssertTrue(twoH.cardValue == twoS.cardValue)
+        XCTAssertEqual(twoH.cardValue, 2)
+        XCTAssertEqual(twoS.cardValue, 2)
+        XCTAssertEqual(twoH.cardValue, twoS.cardValue)
     }
-    func testLessThanSlash() throws {
+    func testLessThan() throws {
         // test all suits
         let twoC = Card(suitValue: .clubs, rankValue: .two)
         let twoD = Card(suitValue: .diamonds, rankValue: .two)
         let twoH = Card(suitValue: .hearts, rankValue: .two)
         let twoS = Card(suitValue: .spades, rankValue: .two)
-        XCTAssertTrue(ace </ twoC)
-        XCTAssertTrue(ace </ twoD)
-        XCTAssertTrue(ace </ twoH)
-        XCTAssertTrue(ace </ twoS)
+        
+        let three = Card(suitValue: .spades, rankValue: .three)
+        XCTAssertLessThan(twoC, three)
+        XCTAssertLessThan(twoD, three)
+        XCTAssertLessThan(twoH, three)
+        XCTAssertLessThan(twoS, three)
         
         // test same ranks
-        XCTAssertFalse(twoS </ twoC)
-        XCTAssertFalse(ten </ ten)
-        XCTAssertFalse(king </ king)
+        XCTAssertFalse(twoS < twoC)
+        XCTAssertFalse(ten < ten)
+        XCTAssertFalse(king < king)
         
-        XCTAssertTrue(eight </ nine)
-        XCTAssertFalse(nine </ eight)
+        XCTAssertLessThan(eight, nine)
+        XCTAssertFalse(nine < eight)
         
-        XCTAssertTrue(ten </ jack)
-        XCTAssertFalse(jack </ ten)
+        XCTAssertLessThan(ten, jack)
+        XCTAssertFalse(jack < ten)
         
-        XCTAssertTrue(ten </ king)
-        XCTAssertTrue(queen </ king)
-        XCTAssertFalse(king </ jack)
-        XCTAssertFalse(king </ queen)
+        XCTAssertLessThan(ten, king)
+        XCTAssertLessThan(queen, king)
+        XCTAssertLessThan(king, ace)
+        XCTAssertFalse(king < jack)
+        XCTAssertFalse(king < queen)
     }
 
     /*
